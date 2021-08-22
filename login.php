@@ -1,60 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
-    <!-- font-awesome cdn link -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <!-- google font link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;1,500&display=swap" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    <header> 
-        <header>
-            <!-- second header -->
-            <section class="second-header">
-                <!-- navbar start -->
-                <nav class="container">
-                    <div class="second-nav-main">
-                        <div class="navchild1">
-                            <img src="images/logo.png" alt="sitelogo">
-                        </div>
-                        <div class="navchild2">
-                            <div>
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="property.html">Property</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="second-navchild3">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <div class="second-navchild4" id="navchild4">
-                            <a href="submit.html"><span>Submit Ads</span></a>
-                            <i class="fas fa-plus" id="fa-plus"></i>
-                        </div>
-                    </div>
-                </nav>
-                 <!-- navbar end -->
-            </section>
-            <!-- banner section start -->
-                <div class="login-banner banner">
-                    <div class="banner-overlay">
-                        <h1 class="banner-header">Sign In</h1>
-                        <p> <a href="#">Home</a>  > SignIn</p>
-                    </div>
-                </div>
-            <!-- banner section end -->
-        </header>
+<!-- login header -->
+<?php include('inc/login/header.php')?>
+<!-- login header -->
 
         <!-- main -->
         <div class="main-div">
@@ -162,6 +108,16 @@
         id.style.background = "red";
         document.getElementById("navchild4").style.background = "#427A11";
     })
+    </script>
+    <!-- button overlay script -->
+    <script>
+        function openSearch() {
+          document.getElementById("myOverlay").style.display = "block";
+        }
+        
+        function closeSearch() {
+          document.getElementById("myOverlay").style.display = "none";
+        }
     </script>
 </body>
 </html>
