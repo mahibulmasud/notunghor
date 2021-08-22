@@ -1,0 +1,202 @@
+*{margin: 0;padding: 0;outline:0}
+:root {
+    --main-color: #5ba600;
+    --primary-color: #0d1741;
+    --design-color: #284887;
+    --paragraph-color: #565872;
+}
+.active{
+    background-color: white;
+    border-radius: 20px 0px 0px 20px;
+    color: green !important;
+}
+.active-icon{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: vard(--main-color) !important;
+}
+.drop-active{
+    padding-left: 10px;
+    background-color: var(--main-color);
+    color: #fff !important;
+    border-radius: 20px 0px 0px 20px;
+}
+body{
+    font-family: "Rubik", sans-serif;
+    box-sizing: border-box;
+}
+/* .module {
+    cursor: url('images/cursorlogo.png'), auto;	
+  } */
+/* scrollbar design */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    position: absolute;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* box-shadow: inset 1px 1px 5px blue;  */
+    background-color: var(--heading-color);
+    /* border-radius: 10px; */
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--main-color); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  /* ::-webkit-scrollbar-thumb:hover {
+    background: var(--heading-color); 
+  } */
+/* index page design */
+.admin-main-structue{
+    display:grid;
+    grid-template-columns: 250px 1fr;
+}
+.ams-child-one{
+    background-color:var(--primary-color);
+    height:100%;
+}
+.ams-child-two{
+    background-color: white;
+    min-height:100vh;
+}
+.admin-footer{
+    height: 15vh;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    color:#fff;
+    background-color: var(--primary-color);
+}
+/* nav design start */
+.nav-container{
+    margin-left:20px;
+}
+.nav-container ul{
+    list-style-type: none;
+}
+.nav-container ul li{
+    padding: 10px 0px;
+    margin: 5px 0px;
+    /* background-color: bisque; */
+}
+.nav-container ul li a{
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+.nav-icon{
+    color: white;
+}
+.sub-menu{
+    display: none;
+    margin-left: 40px;
+}
+.sub-menu-icon{
+    margin-left:5px;
+    cursor: pointer;
+    font-size: 20px;
+    animation-name: sub-arrow-icon;
+    animation-duration:4s;
+    animation-iteration-count:infinite;
+}
+@keyframes sub-arrow-icon {
+    0%   {    transform: translate(0px, 5px);}
+    25%  {    transform: translate(0px, -5px);}
+    50%  {    transform: translate(0px, 5px);}
+    100% {    transform: translate(0px, -5px);}
+  }
+  #sub-menu-icon-up{
+    display: none;
+  }
+  .sub-menu ul li a {
+    color: green;
+    padding-left: 10px;
+}
+/* nav design end */
+/* menu design start */
+.admin-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 15vh;
+    align-items: center;
+    box-shadow: 0px 9px 19px -12px var(--main-color);
+}
+.am-child-two {
+    display: flex;
+    justify-content: center;
+}
+.am-child-two input[type="search"] {
+    padding: 10px 10px 10px 40px;
+    font-size: 20px;
+    border: 0;
+    box-shadow: 0px 0px 4px 1px var(--main-color);
+    border-radius: 20px;
+}
+.am-search {
+    font-size: 18px;
+    position: relative;
+    z-index: 2;
+    /* top: 10px; */
+    left: 20px;
+    transform: rotate(
+92deg
+);
+}
+.am-child-three {
+    display: grid;
+    justify-content: end;
+    padding-right: 30px;
+}
+.am-child-three img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.bar-icon {
+    font-size: 30px;
+    margin: 0px 20px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+.dasboard-text{
+    display: inline;
+    font-size: 40px;
+    font-weight: bold;
+}
+/* menu design end */
+/* dashboard  design start*/
+.dashboard-card-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px 20px;
+    padding: 50px;
+}
+.dashboard-card-main>div {
+    box-shadow: 0px 0px 4px 0px green;
+    padding: 35px;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor:default;
+    position: relative;
+}
+.dashboard-card-main>div .dc-p{
+    color: var(--paragraph-color);
+    text-transform: capitalize;
+    line-height: 30px;
+    /* margin-top: 7px; */
+}
+.dashborad-card-icon {
+    position: absolute;
+    top: 37px;
+    right: 30px;
+    font-size: 50px;
+    color: var(--design-color);
+}
+/* dashboard  design end*/
+/* index page design */

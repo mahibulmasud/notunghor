@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <!-- favicon -->
+    <link rel="icon" href="images/mobile-logo.png" type="image/gif" sizes="16x16">
+    <!-- font-awesome cdn link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;1,500&display=swap" rel="stylesheet">
+
+    <title>admin home</title>
+</head>
+<body>
+    <div class="admin-main-structue">
+        <div class="ams-child-one">
+            <!--admin nav start -->
+            <img src="images/logo.png" alt="" width="100%">
+            <div style="margin: 50px;"></div>
+            <div class="nav-container">
+                <ul>
+                    <li>
+                        <i class="fas fa-tachometer-alt nav-icon active-icon"></i>
+                        <a href="index.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <i class="far fa-user-circle nav-icon active-icon"></i>
+                        <a href="profile.html">Profile</a>
+                    </li>
+                    <li class="active" id="main-li">
+                        <i class="fa fa-sitemap active-icon"></i>
+                        <a href="siteoptions.html" class="active">Site Options</a>
+                        <i class="fas fa-arrow-circle-down sub-menu-icon" id="sub-menu-icon-down"></i>
+                        <i class="fas fa-arrow-circle-up sub-menu-icon" id="sub-menu-icon-up"></i>
+                        <div class="sub-menu" id="dropdown">
+                            <ul>
+                                <li><a href="logo.html" id="logo">Logo</a></li>
+                                <li><a href="title.html" id="title">Title</a></li>
+                                <li><a href="socialmedia.html" id="socialmedia">Social Media</a></li>
+                                <li><a href="copyright.html" id="copyright">Copyright</a></li>
+                            </ul>
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <i class="fas fa-lock nav-icon active-icon"></i>
+                        <a href="changepassword.html">Change Password</a>
+                    </li>
+                    <li>
+                        <i class="far fa-envelope nav-icon active-icon"></i>
+                        <a href="inbox.html">Inbox</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-sign-out-alt nav-icon active-icon"></i>
+                        <a href="#">Signout</a>
+                    </li>
+                </ul>
+            </div>
+            <!--admin nav end -->
+        </div>
+        <div class="ams-child-two">
+            <div class="admin-menu">
+                <div class="am-child-one">
+                    <i class="fas fa-bars bar-icon"></i>
+                    <h1 class="dasboard-text">Site Option</h1>
+                </div>
+                <div class="am-child-two">
+                    <i class="fa fa-search am-search"></i>
+                    <input type="search" name="" id="" placeholder="Search here">
+                </div>
+                <div class="am-child-three">
+                    
+                    <img src="images/masud1.jpg" alt="">
+                    <p>masud</p>
+                </div>
+            </div>
+            <div style="height: 100vh;"></div>
+            <div class="admin-footer">
+                <small>&copy copyright skybird. All right reserved</small>
+                 </div>
+        </div>
+    </div>
+     <!-- js code -->
+     <script>
+        
+        let smu = document.getElementById("sub-menu-icon-up");
+        let smd= document.getElementById("sub-menu-icon-down");
+        let d= document.getElementById("dropdown");
+        smd.addEventListener("click", function(){
+            d.style.display = "block";
+            smd.style.display = "none";
+            smu.style.display ="inline-block";
+        });
+        smu.addEventListener("click", function(){
+            d.style.display = "none";
+            smd.style.display = "inline-block";
+            smu.style.display ="none";
+        });
+    </script>
+</body>
+</html>
