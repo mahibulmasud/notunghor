@@ -4,6 +4,7 @@
     --heading-color: #0d1741;
     --design-color:#284887;
     --paragraph-color: #565872;
+    --font-family: "Rubik", sans-serif;
 }
 body{
     font-family: "Rubik", sans-serif;
@@ -1112,6 +1113,9 @@ footer::after{
           text-shadow: 0 0 20px #fff, 0 0 30px #5ba600, 0 0 40px #5ba600, 0 0 50px #5ba600, 0 0 60px #5ba600, 0 0 70px #5ba600, 0 0 80px #5ba600;
         }
       }
+/* .registration-title{
+    color: var(--paragraph-color);font-family:"Rubik", sans-serif;
+} */
 .main-div .form-icon{
     font-size: 20px;
     padding: 12px 15px;

@@ -18,7 +18,7 @@
                        
                     </style>
                     <h1 class="glow">Hello!</h1>
-                    <p>Sign up to your account</p>
+                    <p style="color: var(--paragraph-color);font-family:Rubik">Sign up to your account</p>
                 </div>
                 <form action="" method="post">
                     <div class="input-container">
