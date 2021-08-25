@@ -407,6 +407,10 @@ body{
     cursor: pointer;
     overflow: hidden;
 }
+.card-link{
+    color: black;
+    text-decoration: none;
+}
 .card-main>div:hover img{
     /* transform: rotate3d(1, 1, 1,360deg);     */
     height: 59%;

@@ -22,11 +22,11 @@
                 </div>
                 <form action="" method="post">
                     <div class="input-container">
-                        <i class="fas fa-envelope-open form-icon"></i>
+                    <i class="fas fa-signature form-icon"></i>
                         <input class="input-feild" type="text" name="firstName" placeholder="First Name">
                     </div>
                     <div class="input-container">
-                        <i class="fas fa-envelope-open form-icon"></i>
+                    <i class="fas fa-signature form-icon"></i>
                         <input class="input-feild" type="text" name="LastName" placeholder="Last Name">
                     </div>
                     <div class="input-container">

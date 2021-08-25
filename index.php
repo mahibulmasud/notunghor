@@ -9,24 +9,38 @@
             <!-- design -->
             <h1 class="section-header smd" data-aos="fade-right">Best House <span class="ads-header-snd">For You</span></h1>
             <hr class="horizontal-line">
+            
                 <!-- card start  -->
                 <div class="card-main container">
+
+
+                    <!-- php -->
+                    <?php
+                        $query = "SELECT * FROM tbl_post";
+                        $post = $db->select($query);
+                        if($post){
+                                while($result = $post->fetch_assoc()){      
+                    ?>
+                    <!-- php -->
+
+
                     <div class="card-area" style="position: relative;">
-                        <img src='images/adspicture.jpg'>
-                        <h2 class="card-price">4000</h2>
+                    <a href="propertydetails.php?id=<?php echo $result['id']; ?>" class="card-link">
+                    <img src='images/<?php echo $result['image']; ?>'>
+                        <h2 class="card-price"><?php echo $result['price']; ?></h2>
                              
-                                <h3 class="card-title">Title goes here</h3>
+                                <h3 class="card-title"><?php echo $result['title']; ?></h3>
                                 <table>
                                     <tr>
                                         <td><i class="fas fa-map-marker-alt"></i></td>
-                                        <td><h6>Bari no:32, Road:A block,Matlab</h6></td>
+                                        <td><h6><?php echo $result['address']; ?></h6></td>
                                      </tr>
                                 </table>
                                 <div class="card-footer">
                                     <table>
                                         <tr>
                                             <td><i class="fas fa-bed"></i></td>
-                                            <td>1</td>
+                                            <td><?php echo $result['bedroom']; ?></td>
                                             <td>Bedroom</td>
                                         </tr>
                                     </table>
@@ -34,15 +48,30 @@
                                     <table>
                                             <tr>
                                                 <td><i class="fas fa-bath"></i></td>
-                                                <td>1</td>
+                                                <td><?php echo $result['bathroom'] ?></td>
                                                 <td>Bathroom</td>
                                             </tr>
                                     </table>   
                                 </div>
-                                       
-                    </div>   
+                        </a>
+                              
+                    </div>  
+
+<?php } ?> <!-- while loop end -->
+
+<?php } else { header("Location:404.php");}  ?><!-- if end --> 
+                
+
                 </div>
                 <!-- card end -->
+
+
+
+
+
+
+
+
         </section>
         <div class="space"></div>
     <!-- Recent Ads end-->

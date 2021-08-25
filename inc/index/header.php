@@ -1,3 +1,12 @@
+<?php include('config/config.php'); ?>
+<?php include('lib/Database.php'); ?>
+<?php
+    $db = new Database();
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +60,7 @@
         <nav class="container">
             <div class="nav-main">
                 <div class="navchild1">
-                    <img src="images/logo.png" alt="sitelogo">
+                    <a href="index.php"><img src="images/logo.png" alt="sitelogo"></a>
                 </div>
                 <div class="navchild2">
                     <div>

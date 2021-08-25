@@ -42,10 +42,10 @@
                     <div class="tf-two">
                         <h1>Quick link</h1>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">See Ads</a></li>
-                            <li><a href="#">Give Ads</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="about.php">About Us</a></li>
+                            <li><a href="contact.php">Contact Us</a></li>
+                            <li><a href="registration.php">SignUp</a></li>
+                            <li><a href="login.php">SignIn</a></li>
                         </ul>
                     </div>
                     <div class="tf-three">

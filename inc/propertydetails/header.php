@@ -1,3 +1,11 @@
+<?php include('config/config.php'); ?>
+<?php include('lib/Database.php'); ?>
+<?php
+    $db = new Database();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,15 +30,15 @@
             <nav class="container">
                 <div class="second-nav-main">
                     <div class="navchild1">
-                        <img src="images/logo.png" alt="sitelogo">
+                    <a href="index.php"><img src="images/logo.png" alt="sitelogo"></a>
                     </div>
                     <div class="navchild2">
                         <div>
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a id="active" href="property.html">Property</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="index.php">Home</a></li>
+                                <li><a id="active" href="property.php">Property</a></li>
+                                <li><a href="about.php">About</a></li>
+                                <li><a href="contact.php">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -38,7 +46,7 @@
                         <i class="fas fa-search"></i>
                     </div>
                     <div class="second-navchild4" id="navchild4">
-                        <a href="submit.html"><span>Submit Ads</span></a>
+                        <a href="submit.php"><span>Submit Ads</span></a>
                         <i class="fas fa-plus" id="fa-plus"></i>
                     </div>
                     <div class="seocnd-navchild5" id="navchild5"><!-- for display 768px -->
@@ -49,10 +57,10 @@
                 </div>
                 <div class="dropdown second-dropdown">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a id="active" href="property.html">Property</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a id="active" href="property.php">Property</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -62,7 +70,7 @@
         <div class="propertydetails-banner banner">
             <div class="banner-overlay">
                 <h1 class="banner-header">Property Details</h1>
-                <p> <a href="#">Home</a>  > Property Details</p>
+                <p> <a href="propertydetails.php">Home</a>  > Property Details</p>
             </div>
         </div>
     <!-- banner section end -->

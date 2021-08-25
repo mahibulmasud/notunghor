@@ -22,7 +22,7 @@
                 <nav class="container">
                     <div class="second-nav-main">
                         <div class="navchild1">
-                            <img src="images/logo.png" alt="sitelogo">
+                        <a href="index.php"><img src="images/logo.png" alt="sitelogo"></a>
                         </div>
                         <div class="navchild2">
                             <div>
@@ -59,6 +59,7 @@
                     <div class="banner-overlay">
                         <h1 class="banner-header">Sign In</h1>
                         <p> <a href="#">Home</a>  > SignIn</p>
+                        <p> or<a href="registration.php"> SignUp</a>   </p>
                     </div>
                 </div>
             <!-- banner section end -->

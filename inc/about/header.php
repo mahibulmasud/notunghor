@@ -23,7 +23,7 @@
                 <nav class="container">
                     <div class="second-nav-main">
                         <div class="navchild1">
-                            <img src="images/logo.png" alt="sitelogo">
+                        <a href="index.php"><img src="images/logo.png" alt="sitelogo"></a>
                         </div>
                         <div class="navchild2">
                             <div>

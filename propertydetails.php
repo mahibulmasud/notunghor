@@ -1,26 +1,49 @@
 <!-- index header -->
 <?php include('inc/propertydetails/header.php'); ?>
 <!-- index header -->
+
+
+<!-- php -->
+<?php
+    if(!isset($_GET['id']) || $_GET['id'] == NULL){
+        header("Location: 404.php");
+    }else{
+        $id = $_GET['id'];
+    }
+?>
+<!-- php -->
+
+
     <main>
         <!-- section 1 start-->
         <section class="pd-sectionone">
             <div class="pd-main container">
                 <div class="pd-childone">
-                    <h1 class="pd-childone-h1">Title goes here.......</h1>
+
+
+                <?php
+                    $query = "SELECT * FROM tbl_post WHERE id =$id";
+                    $post = $db->select($query);
+                    if($post){
+                            while($result = $post->fetch_assoc()){
+                ?>
+
+
+
+                    <h1 class="pd-childone-h1"><?php echo $result['title']; ?></h1>
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Dhanmondi, Dhaka</span>
+                    <span><?php echo $result['address']; ?></span>
                 </div>
                 <div class="pd-childtwo">
-                    <h1 class="pd-childtwo-h1">6000.00/- BDT</h1>
+                    <h1 class="pd-childtwo-h1"><?php echo $result['price']; ?>.00/- BDT</h1>
                     <p class="pd-childtwo-p">Per Month</p>
                 </div>
             </div>
             <!-- image -->
             <div class="container">
-                <img src="images/adspicture.jpg" alt="" width="100%">
+                <img src="images/<?php echo $result['image']; ?>" alt="property ads" width="100%">
             </div>
         </section> 
-            
         <!-- section 1 end-->
         <!-- Main Content -->
         <!-- section 2 start-->
@@ -28,10 +51,15 @@
             <div class="main-content-main container">
                 <div>
                     <h2 class="st-description">Description</h2>
-                    <p class="st-description-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, illo. Quo qui sequi placeat dolor debitis numquam eum repudiandae perferendis vero blanditiis. Autem cumque cum eveniet harum enim rerum architecto optio necessitatibus at exercitationem perspiciatis praesentium culpa dignissimos in quaerat consectetur sed, laborum recusandae, ipsa blanditiis, accusantium nam dicta soluta? 
-                        <br> <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, illo. Quo qui sequi placeat dolor debitis numquam eum repudiandae perferendis vero blanditiis. Autem cumque cum eveniet harum enim rerum architecto optio necessitatibus at exercitationem perspiciatis praesentium culpa dignissimos in quaerat consectetur sed, laborum recusandae, ipsa blanditiis, accusantium nam dicta soluta?</p>
+                    <p class="st-description-p"><?php echo $result['description']; ?></p>
+                    
 
-                    <div class="comment-area">
+<?php } ?> <!-- while loop end -->
+
+<?php } else { header("Location:404.php");}  ?><!-- if end --> 
+
+
+                        <div class="comment-area">
                         <h1>Post Your Comment</h1><br>
                         <hr class="comment-hr">
                         <br><br>
