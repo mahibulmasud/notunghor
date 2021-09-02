@@ -1,6 +1,15 @@
-<!-- index header -->
-<?php include('inc/propertydetails/header.php'); ?>
-<!-- index header -->
+<!-- second header -->
+<?php include('inc/second-header.php'); ?>
+ <!-- banner section start -->
+ <div class="propertydetails-banner banner">
+            <div class="banner-overlay">
+                <h1 class="banner-header">Property Details</h1>
+                <p> <a href="propertydetails.php">Home</a>  > Property Details</p>
+            </div>
+        </div>
+    <!-- banner section end -->
+    </header>
+<!-- second header -->
 
 
 <!-- php -->

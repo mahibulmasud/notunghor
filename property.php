@@ -1,6 +1,15 @@
-<!-- property header -->
-<?php include('inc/property/header.php')?>
-<!-- property header -->
+<!-- second header -->
+<?php include('inc/second-header.php')?>
+<!-- banner section start -->
+<div class="property-banner banner">
+            <div class="banner-overlay">
+                <h1 class="banner-header">Property</h1>
+                <p> <a href="#">Home</a>  > Property</p>
+            </div>
+        </div>
+    <!-- banner section end -->
+    </header>
+<!-- second header -->
     <main>
         <!-- section 1 start-->
         <div class="serach-bar-main">

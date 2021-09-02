@@ -1340,6 +1340,59 @@ line-height: 1.5;
 .button:hover::before{
     right: 0;
 }
+/* contact form */
+.contact-inputfeild{
+    margin: 10px 0px;
+    position: relative;
+}
+.contact-inputfeild-input-text {
+    display: block;
+    width: 100%;
+    padding: 20px 27px;
+    font-size: 18px;
+    box-shadow: 1px 1px 1px 1px #0080007a;
+    border: 0;
+}
+.contact-inputfeild textarea{
+    padding: 20px 27px;
+    width: 100%;
+    font-size: 18px;
+    box-shadow: 1px 1px 1px 1px #0080007a;
+    border: 0;
+}
+.contact-inputfeild label{
+    position: absolute;
+    top:50%;
+    left: 50px;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s;
+    pointer-events: none;
+    color: #999;
+}
+.input:focus ~ label, .input:valid ~ label {
+    font-size: 0.75em;
+    color: #999;
+    top: 27%;
+    left: 8%;
+    -webkit-transition: all 0.225s ease;
+    transition: all 0.225s ease;
+}
+.contact-inputfeild-textarea label{
+    position: absolute;
+    top:30px;
+    left: 60px;
+    transform: translate(-50%,-50%);
+    transition: all 0.3s;
+    pointer-events: none;
+    color: #999;
+}
+.contact-inputfeild-textarea:focus ~ label, .contact-inputfeild-textarea:valid ~ label {
+    font-size: 0.75em;
+    color: #999;
+    top: 15px;
+    -webkit-transition: all 0.225s ease;
+    transition: all 0.225s ease;
+}
 /* contact page end */
 
 /* property details page start */

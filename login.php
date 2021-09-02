@@ -1,5 +1,15 @@
 <!-- login header -->
-<?php include('inc/login/header.php')?>
+<?php include('inc/second-header.php')?>
+<!-- banner section start -->
+<div class="login-banner banner">
+                    <div class="banner-overlay">
+                        <h1 class="banner-header">Sign In</h1>
+                        <p> <a href="#">Home</a>  > SignIn</p>
+                        <p> or<a href="registration.php"> SignUp</a>   </p>
+                    </div>
+                </div>
+            <!-- banner section end -->
+        </header>
 <!-- login header -->
 
         <!-- main -->

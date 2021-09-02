@@ -1,5 +1,16 @@
 <!-- registration header -->
-<?php include('inc/registration/header.php')?>
+<?php include('inc/second-header.php')?>
+ <!-- banner section start -->
+ <div class="registration-banner banner">
+                    <div class="banner-overlay">
+                        <h1 class="banner-header">Sign Up</h1>
+                        <p> <a href="#">Home</a>  > Signup</p>
+                        <p> or<a href="login.php"> SignIn</a>   </p>
+                    </div>
+                </div>
+            <!-- banner section end -->
+    </header>
+
 <!-- registration header -->
         <!-- main -->
         <div class="main-div">

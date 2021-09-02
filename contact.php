@@ -1,10 +1,21 @@
 <!-- contact header -->
-<?php include('inc/contact/header.php')?>
+<?php include('inc/second-header.php')?>
+ <!-- banner section start -->
+ <div class="contact-banner banner">
+            <div class="banner-overlay">
+                <h1 class="banner-header">Contact</h1>
+                <p> <a href="#">Home</a>  > Contact</p>
+            </div>
+        </div>
+    <!-- banner section end -->
+    </header>
 <!-- contact header -->
 <!-- // -->
 <div style="margin:50px"></div>
 <!-- // -->
+<style>
 
+</style>
     <div class="contact-div">
         <div class="contact-clip-one"></div>
         <div class="contact-clip-two"></div>
@@ -18,19 +29,19 @@
                 <h4 style="text-align:center">We'd love to hear from you!</h4>
                 <form action="">
                     <div class="contact-inputfeild">
-                        <input type="text" required>
+                        <input type="text" class="contact-inputfeild-input-text c-input" required>
                         <label> Name</label>
                     </div>
                     <div class="contact-inputfeild">
-                        <input type="text" required>
+                        <input type="text" class="contact-inputfeild-input-text c-input" required>
                         <label> Email</label>
                     </div>
                     <div class="contact-inputfeild">
-                        <input type="text" required>
+                        <input type="text" class="contact-inputfeild-input-text c-input" required>
                         <label> Phone</label>
                     </div>
                     <div class="contact-inputfeild textarea">
-                        <textarea name="" id="" cols="100%" rows="10"></textarea>
+                        <textarea name="" class="contact-inputfeild-textarea" cols="100%" rows="10"></textarea>
                         <label> Message</label>
                     </div>
                     <div class="contact-inputfeild">

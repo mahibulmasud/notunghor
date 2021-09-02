@@ -1,5 +1,14 @@
 <!-- submit header -->
-<?php include('inc/submit/header.php')?>
+<?php include('inc/second-header.php')?>
+  <!-- banner section start -->
+  <div class="submit-banner banner">
+            <div class="banner-overlay">
+                <h1 class="banner-header">Add Property</h1>
+                <p> <a href="#">Home</a>  > Add Property</p>
+            </div>
+        </div>
+    <!-- banner section end -->
+    </header>
 <!-- submit header -->
 
 <!-- / basic information form start/ -->

@@ -1,6 +1,18 @@
-<!-- about header -->
-<?php include('inc/about/header.php') ?>
-<!-- about header -->
+<!-- second header -->
+<?php include('inc/second-header.php') ?>
+<head>
+<title>About</title>
+</head>
+<!-- banner section start -->
+<div class="login-banner banner">
+                    <div class="banner-overlay">
+                        <h1 class="banner-header">About</h1>
+                        <p> <a href="#">Home</a>  > About</p>
+                    </div>
+                </div>
+            <!-- banner section end -->
+        </header>
+<!-- second header -->
     <!-- section start -->
     <section class="section">
         <div class="clip-one-team">
