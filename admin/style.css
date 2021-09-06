@@ -31,15 +31,12 @@ body{
 /* scrollbar design */
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
-    position: absolute;
+    width: 10px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    /* box-shadow: inset 1px 1px 5px blue;  */
-    background-color: var(--heading-color);
-    /* border-radius: 10px; */
+    background-color: var(--primary-color);
   }
    
   /* Handle */
@@ -53,17 +50,18 @@ body{
     background: var(--heading-color); 
   } */
 /* index page design */
-.admin-main-structue{
-    display:grid;
-    grid-template-columns: 250px 1fr;
+.displayleft-structure {
+    background-color: var(--primary-color);
+    width: 20%;
+    height: 103vh;
+    float: left;
+    position: fixed;
+    overflow: scroll;
 }
-.ams-child-one{
-    background-color:var(--primary-color);
-    height:100%;
-}
-.ams-child-two{
-    background-color: white;
-    min-height:100vh;
+.displayright-structure{
+    width: 80%;
+    height: 100%;
+    float: right;
 }
 .admin-footer{
     height: 15vh;

@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!-- second header -->
 <?php include('inc/second-header.php')?>
 <!-- banner section start -->
@@ -10,16 +11,18 @@
     <!-- banner section end -->
     </header>
 <!-- second header -->
+<?php
+    if(!isset($_GET['search']) || $_GET['search'] == NULL){
+        header('Location:404.php');
+    }else{
+        $search = $_GET['search'];
+    }
+?>
     <main>
         <!-- section 1 start-->
         <div class="serach-bar-main">
             <div class="search-bar-child searchbar-child-one">
-            <?php
-                $query = "SELECT * FROM tbl_post";
-                $result = $db->select($query);
-                $total_rows = mysqli_num_rows($result);
-            ?>
-            <h3><?php echo $total_rows ?> properties</h3>
+                <h3>21 properties</h3>
             </div>
             <div class="search-bar-child searchbar-child-two">
             <form action="search.php" method="get">
@@ -41,20 +44,9 @@
         <!-- section 2 start -->
                         <!-- card start  -->
                         <div class="card-main container">
-                                        <!-- Pagination -->
-                            <?php
-                                $per_page = 6;
-                                if(isset($_GET["page"])){
-                                    $page = $_GET["page"];
-                                }else{
-                                    $page = 1;
-                                }
-                                $start_form = ($page-1) * $per_page;
-                            ?>
-                            <!-- Pagination -->
                             <!-- php -->
                             <?php
-                                $query = "SELECT * FROM tbl_post limit $start_form, $per_page";
+                                $query = "SELECT * FROM tbl_post WHERE address  LIKE '%$search%'";
                                 $post = $db->select($query);
                                 if($post){
                                     while($result = $post->fetch_assoc()){        
@@ -92,31 +84,16 @@
                                     </a>         
                             </div>  
 <?php } ?> <!-- while loop end -->
+<?php } else{ ?>
+    <p>OppS! Not found anything</p>
+    
+ <?php } ?><!-- if end -->
                         </div>
                         <!-- card end -->
             <!-- section 2 end -->
     </main>
 
 <!-- // -->
-<div style="margin:50px"></div>
-
-<!-- Pagination -->
-<?php
-    $query = "SELECT * FROM tbl_post";
-    $result = $db->select($query);
-    $total_rows = mysqli_num_rows($result);
-    $total_pages = ceil($total_rows/$per_page);
-
-
-    echo "<span class='pagination'><a href='property.php?page=1'>".'<i class="fas fa-arrow-left"></i>'."</a>";
-    for($i = 1; $i < $total_pages; $i++){
-        echo "<a class='pagination-number' href='property.php?page=".$i."'>".$i."</a>";
-    }
-?>
-    
-    <?php echo " <a href='property.php?page=$total_pages'>".'<i class="fas fa-arrow-right"></i>'."</a> </span>" ?>
-<!-- Pagination -->
-<?php } else{ header("Location:404.php"); } ?><!-- if end -->
 <div style="margin:50px"></div>
 <!-- // -->
 <!-- footer -->

@@ -3,8 +3,8 @@
 <head>
 <title>About</title>
 </head>
-<!-- banner section start -->
-<div class="login-banner banner">
+            <!-- banner section start -->
+            <div class="login-banner banner">
                     <div class="banner-overlay">
                         <h1 class="banner-header">About</h1>
                         <p> <a href="#">Home</a>  > About</p>

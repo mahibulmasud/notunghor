@@ -1,5 +1,5 @@
 <!-- property header -->
-<?php include('inc/property/header.php')?>
+<?php include('inc/second-header.php')?>
 <!-- property header -->
     <main>
         <h1>404</h1>

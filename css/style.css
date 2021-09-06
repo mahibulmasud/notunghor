@@ -69,7 +69,7 @@ body{
 /* header design start */
 .header-background{
     height: 100vh;
-    background-image: url("images/banners/homeBanner.png");
+    background-image: url("../images/banners/homeBanner.png");
     background-size: cover;
     background-blend-mode: overlay;
     background-color: rgba(0,24,77,.8);
@@ -1020,27 +1020,27 @@ footer::after{
     position: relative;
 }
 .registration-banner{
-    background-image: url("images/banners/RegistrationBanner.png");
+    background-image: url("../images/banners/RegistrationBanner.png");
    
 }
 .login-banner{
-    background-image: url("images/banners/RegistrationBanner.png");
+    background-image: url("../images/banners/RegistrationBanner.png");
 }
 .contact-banner{
-    background-image: url("images/banners/RegistrationBanner.png");
+    background-image: url("../images/banners/RegistrationBanner.png");
 }
 .property-banner{
-    background-image: url("images/banners/propertyBanner.png");
+    background-image: url("../images/banners/propertyBanner.png");
 }
 .about-banner{
-    background-image: url("images/banners/aboutBanner.jpg");
+    background-image: url("../images/banners/aboutBanner.jpg");
     background-position: right;
 }
 .submit-banner{
-    background-image: url("images/banners/submitBanner.png");
+    background-image: url("../images/banners/submitBanner.png");
 }
 .propertydetails-banner{
-    background-image: url("images/banners/propertydetailsBanner.png");
+    background-image: url("../images/banners/propertydetailsBanner.png");
 }
 .banner-overlay{
     position: absolute;
@@ -1224,7 +1224,8 @@ footer::after{
     .searchbar-child-two{
         position: relative;
     }
-    .searchbar-child-two .fa-search {
+    .search-button{
+        display: inline;
         position: absolute;
         background-color: var(--main-color);
         padding: 10px;
@@ -1232,6 +1233,11 @@ footer::after{
         top: 10px;
         border-radius: 20px;
         color: #fff;
+        border: 0;
+        cursor: pointer;
+    }
+    .searchbar-child-two .fa-search:hover{
+        color: white;
     }
     .searchbar-child-three{
         display: flex;
@@ -1247,6 +1253,40 @@ footer::after{
     option{
         padding: 10px 10px;
     }
+    /* pagination */
+    .pagination{
+        display: block;
+        text-align: center;
+    }
+    .pagination-number{
+        margin: 0px 20px;
+        background-color: #fff;
+        color: var(--design-color);
+        padding: 15px;
+        font-size: 20px;
+        border-radius: 50%;
+        text-decoration: none;
+    }
+    .pagination-number:hover{
+        background-color: var(--main-color);
+        color: #fff;
+    }
+    .fa-arrow-left, .fa-arrow-right{
+        background-color: #fff;
+        color: var(--design-color);
+        padding: 15px;
+        font-size: 20px;
+        border-radius: 50%;
+    }
+    .fa-arrow-left:hover{
+        background-color: var(--main-color);
+        color: white;
+    }
+    .fa-arrow-right:hover{
+        background-color: var(--main-color);
+        color: white;
+    }
+    /* pagination */
 /* property page end */
 
 /* contact page start */

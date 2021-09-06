@@ -14,8 +14,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- font-awesome cdn link -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <!-- google font link -->
@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;1,500&display=swap" rel="stylesheet">
     <title><?php echo $fm ->title(); ?> - <?php echo title; ?></title>
 </head>
-<body>
+<body style="background: #F5F6F7;">
     <header> 
             <!-- second header -->
             <section class="second-header">
@@ -32,7 +32,8 @@
                 <nav class="container">
                     <div class="second-nav-main">
                         <div class="navchild1">
-                        <a href="index.php"><img src="images/logo.png" alt="sitelogo"></a>
+                        <a class="pc-logo" href="index.php"><img src="images/logo.png" alt="sitelogo"></a>
+                        <a class="mobile-logo" href="index.php"><img src="images/mobile-logo.png" alt="sitelogo"></a>
                         </div>
                         <div class="navchild2">
                             <div>
@@ -79,12 +80,20 @@
                     </div>
                 </div>
                 <div class="dropdown second-dropdown">
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="property.php">Property</a></li>
-                        <li><a href="about.php">About</a></li>
-                        <li><a id="contact" href="contact.php">Contact</a></li>
-                    </ul>
+                <ul>
+                                    <li>
+                                        <a <?php if($currentpage == 'index'){echo 'id="active"';} ?> href="index.php">Home</a>
+                                    </li>
+                                    <li>
+                                        <a <?php if($currentpage == 'property'){echo 'id="active"';} ?> href="property.php">Property</a>
+                                    </li>
+                                    <li>
+                                        <a <?php if($currentpage == 'about'){echo 'id="active"';} ?> href="about.php">About</a>
+                                    </li>
+                                    <li>
+                                        <a <?php if($currentpage == 'contact'){echo 'id="active"';} ?> id="contact" href="contact.php">Contact</a>
+                                    </li>
+                                </ul>
                 </div>
             </nav>
              <!-- navbar end -->

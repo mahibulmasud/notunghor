@@ -7,7 +7,7 @@
             <div class="left-design"></div>
             <div class="right-design"></div>
             <!-- design -->
-            <h1 class="section-header smd" data-aos="fade-right">Best House <span class="ads-header-snd">For You</span></h1>
+            <h1 class="section-header smd" data-aos="fade-right">Recent Ads <span class="ads-header-snd">For You</span></h1>
             <hr class="horizontal-line">
             
                 <!-- card start  -->
@@ -16,7 +16,7 @@
 
                     <!-- php -->
                     <?php
-                        $query = "SELECT * FROM tbl_post";
+                        $query = "SELECT * FROM tbl_post limit 3";
                         $post = $db->select($query);
                         if($post){
                                 while($result = $post->fetch_assoc()){      

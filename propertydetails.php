@@ -1,3 +1,4 @@
+<?php //ob_start(); ?>
 <!-- second header -->
 <?php include('inc/second-header.php'); ?>
  <!-- banner section start -->

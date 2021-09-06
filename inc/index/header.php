@@ -1,7 +1,9 @@
 <?php include('config/config.php'); ?>
 <?php include('lib/Database.php'); ?>
+<?php include('helpers/format.php'); ?>
 <?php
     $db = new Database();
+    $fm = new Format();
 ?>
 
 
@@ -13,8 +15,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- favicon -->
     <link rel="icon" href="images/mobile-logo.png" type="image/gif" sizes="16x16">
     <!-- font-awesome cdn link -->
