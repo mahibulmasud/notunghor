@@ -16,7 +16,7 @@
 
                     <!-- php -->
                     <?php
-                        $query = "SELECT * FROM tbl_post limit 3";
+                        $query = "SELECT * FROM tbl_post ORDER BY id DESC limit 6";
                         $post = $db->select($query);
                         if($post){
                                 while($result = $post->fetch_assoc()){      

@@ -11,6 +11,12 @@
             <!-- banner section end -->
     </header>
 
+
+    <?php
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])){
+            $userReg = $us->userRegistration($_POST);
+        }
+    ?>
 <!-- registration header -->
         <!-- main -->
         <div class="main-div">
@@ -22,102 +28,60 @@
             </div>
             <div class="layout-main">
             <div class="part-one">
-            <div>
-                <div class="title">
-                    <!-- <p class="login-logo">Registration</p> -->
-                    <style>
-                       
-                    </style>
-                    <h1 class="glow">Hello!</h1>
-                    <p style="color: var(--paragraph-color);font-family:Rubik">Sign up to your account</p>
+                <div>
+                    <div class="title">
+                        <!-- <p class="login-logo">Registration</p> -->
+                        <style>
+                        
+                        </style>
+                        <h1 class="glow">Hello!</h1>
+                        <p style="color: var(--paragraph-color);font-family:Rubik">Sign up to your account</p>
+
+                        <?php
+                            if(isset($userReg)){
+                                echo $userReg;
+                            }
+                        ?>
+
+                    </div>
+                    <form action="" method="POST">
+                        <div class="input-container">
+                        <i class="fas fa-signature form-icon"></i>
+                            <input class="input-feild" type="text" name="userName" placeholder="Name">
+                        </div>
+                        <div class="input-container">
+                        <i class="fas fa-signature form-icon"></i>
+                            <input class="input-feild" type="text" name="userUsername" placeholder="Username">
+                        </div>
+                        <div class="input-container">
+                            <i class="fas fa-envelope-open form-icon"></i>
+                            <input class="input-feild" type="text" name="userEmail" placeholder="E-mail">
+                        </div>
+                        <div class="input-container">
+                            <i class="fas fa-lock form-icon"></i>
+                            <input class="input-feild" type="userPass" name="userPass"
+                            placeholder="Password">
+                        </div>
+                        <br><br>
+                        <input class="button" type="submit" name="register" value="SignUp">
+                
+                    </form>
                 </div>
-                <form action="" method="post">
-                    <div class="input-container">
-                    <i class="fas fa-signature form-icon"></i>
-                        <input class="input-feild" type="text" name="firstName" placeholder="First Name">
-                    </div>
-                    <div class="input-container">
-                    <i class="fas fa-signature form-icon"></i>
-                        <input class="input-feild" type="text" name="LastName" placeholder="Last Name">
-                    </div>
-                    <div class="input-container">
-                        <i class="fas fa-envelope-open form-icon"></i>
-                        <input class="input-feild" type="text" name="email" placeholder="E-mail">
-                    </div>
-                    <div class="input-container">
-                        <i class="fas fa-lock form-icon"></i>
-                        <input class="input-feild" type="password" name="password"
-                        placeholder="Password">
-                    </div>
-                    <br><br>
-                    <input class="button" type="submit" name="submit" value="SignUp">
-            
-                </form>
-            </div>
            
             </div>
             <div class="part-two">
-            <div>
-            <h1>Welcome !</h1>
-            <hr class="devider">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate fugiat dicta
-                minima, nihil repellendus pariatur reprehenderit molestias? Porro quia qui iure maiores ipsum?
-                Aut voluptate eum amet dolores facere tempora?</p>
-                 </div>
-                 </div>
-                 </div>
+            
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_nlydoi3a.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop autoplay></lottie-player>
+            
+            </div>
                        
-    </div>
+        </div>
 
 
-    <!-- footer start -->
-        <footer>
-            <section class="container">
-                <div class="top-footer">
-                    <div class="tf-one">
-                        <h1>Contact Us</h1>
-                        <table>
-                            <tr>
-                                <td class="first"><i class="fas fa-map-marker-alt"></i></td>
-                                <td>420 Love Sreet 133/2 Mirpur City, Dhaka</td>
-                                
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-phone-volume"></i></td>
-                                <td>+8801980573601</td>
-                            </tr>
-                            <tr>
-                                <td><i class="fas fa-envelope"></i></td>
-                                <td>jannatul15-1744@diu.edu.bd</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="tf-two">
-                        <h1>Quick link</h1>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">See Ads</a></li>
-                            <li><a href="#">Give Ads</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="tf-three">
-                        <h1 class="newslatter">Newslatter</h1>
-                        <p>Lorem ipsum dolor sit amet,</p>
-                        <div class="subscribe-div">
-                            <input type="text" name="" id="#" placeholder="Your mail"><a href="#" class="subscribe">Subscribe</a>
-                        </div>
-                    </div>
-                    <div class="tf-four">
-                        <div class="copyright-area">
-                            <small class="copyright-text">©2021, Copy Right By Skybird. All Rights Reserved</small>
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
-        </footer>
-    <!-- footer end -->
+<!-- footer -->
+<?php include('inc/footer.php') ?>
+<!-- footer -->
     
     <!-- js code -->
     <script>
