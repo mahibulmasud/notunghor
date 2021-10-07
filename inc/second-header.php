@@ -1,10 +1,16 @@
-<?php include('lib/Database.php'); ?>
-<?php include('helpers/format.php'); ?>
-<?php include 'classes/User.php' ?>
+<?php 
+    ob_start();
+    include('lib/Session.php');
+    Session::init();
+    include('lib/Database.php'); 
+    include('helpers/format.php');
+    include_once('classes/User.php');
+
+ ?>
 <?php
-    spl_autoload_register(function($class){
-        include_once "classes/".$class.".php";
-    });
+    // spl_autoload_register(function($class){
+    //     include_once "classes/".$class.".php";
+    // });
 ?>
 <?php
     $db = new Database();
@@ -21,12 +27,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <!-- font-awesome cdn link -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <!-- font-awesome offline link -->
+    <link rel="stylesheet" href="css/fontawesomeCss/all.css">
+    <link rel="stylesheet" href="css/fontawesomeCss/all.min.css">
+    <link rel="stylesheet" href="css/fontawesomeCss/fontawesome.css">
+    <link rel="stylesheet" href="css/fontawesomeCss/fontawesome.min.css">
     <!-- google font link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;1,500&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="css/font.css">
     <title><?php echo $fm ->title(); ?> - <?php echo title; ?></title>
 </head>
 <body style="background: #F5F6F7;">
@@ -63,16 +70,36 @@
                             </div>
                         </div>
                         <div class="second-navchild3">
-                            <i class="fas fa-search openBtn nav-search" onclick="openSearch()"></i>
-                            <div id="myOverlay" class="overlay">
-                                <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
-                                <div class="overlay-content">
-                                    <form action="">
-                                        <input type="text" placeholder="Search.." name="search">
-                                        <button type="submit"><i class="fa fa-search overlay-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>
+                        <?php 
+                            $login = Session::get("userlogin");
+                            if ($login == false) {
+                            ?>
+                            <i class="far fa-user-circle user-usericon"></i>
+                            <p style="font-size:12px">username</p>
+                            <?php
+                            }else{
+                                ?>
+
+                                    <?php
+                                        $id =  Session::get("uid");
+                                        $getdata = $us->getUserData($id);
+                                        if ($getdata) {
+                                            while($result = $getdata->fetch_assoc()){
+
+                                    ?>
+                                    <a href="profile.php"> <abbr title="profile">
+                                    <img src="<?php echo $result['userImage']; ?>" width="40px" height="40px" style="border-radius:50%" alt="">
+                                    </abbr></a>
+
+                                    <?php } } ?>
+
+
+                                    <p style="font-size:12px"><?php echo Session::get('userUsername'); ?></p>
+                                <?php
+                            }
+                        ?>
+                            
+
                         </div>
                     <div class="second-navchild4" id="navchild4">
                         <a href="submit.php"><span>Submit Ads</span></a>

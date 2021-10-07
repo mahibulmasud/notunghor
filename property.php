@@ -14,15 +14,15 @@
         <!-- section 1 start-->
         <div class="serach-bar-main">
             <div class="search-bar-child searchbar-child-one">
-            <?php
-                $query = "SELECT * FROM tbl_post";
-                $result = $db->select($query);
-                $total_rows = mysqli_num_rows($result);
-            ?>
-            <h3><?php echo $total_rows ?> properties</h3>
+                <?php
+                    $query = "SELECT * FROM tbl_post";
+                    $result = $db->select($query);
+                    $total_rows = mysqli_num_rows($result);
+                ?>
+                <h3><?php echo $total_rows ?> properties</h3>
             </div>
             <div class="search-bar-child searchbar-child-two">
-            <form action="search.php" method="get">
+                <form action="search.php" method="get">
                 <input type="text" name="search" id="" class="search" placeholder="Search by district">
                 <button type="submit" class="search-button"> <i class="fa fa-search"></i></button>
                 </form>
@@ -167,15 +167,5 @@
         myFunction(x)
         x.addListener(myFunction)
         </script>
-        <!-- button overlay script -->
-    <script>
-        function openSearch() {
-          document.getElementById("myOverlay").style.display = "block";
-        }
-        
-        function closeSearch() {
-          document.getElementById("myOverlay").style.display = "none";
-        }
-    </script>
 </body>
 </html>

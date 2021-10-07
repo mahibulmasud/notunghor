@@ -319,6 +319,14 @@
         font-size: 60px;
         }
     /* responsive design for contact page */
+   /* responsive design for user profile page 600px */
+   .user-profile-table tr td {
+    font-size: 15px;
+    }
+    .user-profile-table input {
+        min-width: 100%;
+    }
+   /* responsive design for user profile page 600px */
 }
 /* responsive design for index page end */
 /* responsive design for second headder start */

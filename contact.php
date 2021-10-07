@@ -18,7 +18,6 @@
 </style>
     <div class="contact-div">
         <div class="contact-clip-one"></div>
-        <div class="contact-clip-two"></div>
         <div class="contact-section container">
             <div class="cs-child-one ">
                 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -29,20 +28,20 @@
                 <h4 style="text-align:center">We'd love to hear from you!</h4>
                 <form action="">
                     <div class="contact-inputfeild">
-                        <input type="text" class="contact-inputfeild-input-text c-input" required>
-                        <label> Name</label>
+                        <input type="text" class="contact-inputfeild-input-text" placeholder="Name" required >
+                        
                     </div>
                     <div class="contact-inputfeild">
-                        <input type="text" class="contact-inputfeild-input-text c-input" required>
-                        <label> Email</label>
+                        <input type="text" class="contact-inputfeild-input-text" placeholder="Email" required>
+                       
                     </div>
                     <div class="contact-inputfeild">
-                        <input type="text" class="contact-inputfeild-input-text c-input" required>
-                        <label> Phone</label>
+                        <input type="text" class="contact-inputfeild-input-text" placeholder="Phone" required>
+                    
                     </div>
                     <div class="contact-inputfeild textarea">
-                        <textarea name="" class="contact-inputfeild-textarea" cols="100%" rows="10"></textarea>
-                        <label> Message</label>
+                        <textarea name="" class="contact-inputfeild-textarea" placeholder="Message" cols="100%" rows="10"></textarea>
+                        
                     </div>
                     <div class="contact-inputfeild">
                         <button class="button">Send</button>
@@ -105,15 +104,5 @@
             myFunction(x)
             x.addListener(myFunction)
             </script>
-             <!-- button overlay script -->
-    <script>
-        function openSearch() {
-          document.getElementById("myOverlay").style.display = "block";
-        }
-        
-        function closeSearch() {
-          document.getElementById("myOverlay").style.display = "none";
-        }
-    </script>
 </body>
 </html>

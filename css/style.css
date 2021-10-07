@@ -131,13 +131,13 @@ body{
 }
 /* top header end*/
 /* nav */
-.nav-main{
+.nav-main {
     color: white;
     background: #061539;
     height: 14vh;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 1fr 3fr 0.4fr 1.5fr;
+    grid-template-columns: 1fr 3fr 1fr 1.5fr;
     align-items: center;
 }
 .navchild1 img {
@@ -160,6 +160,7 @@ body{
 }
 .navchild3{
     position: relative;
+    text-align: center;
 }
 .navchild3 a{
     text-decoration: none;
@@ -287,7 +288,7 @@ body{
     border: .3rem solid #061539;
     border-radius: 5px;
     position: absolute;
-    top: -2vh;
+    top: 0vh;
     right: -1.9vw;
     z-index: 4;
 }
@@ -403,12 +404,11 @@ body{
 }
 .card-main>div{
     position: relative;
-    box-shadow: 0px 0px 8px -5px #3f51b5;
+    box-shadow: 0px 0px 8px -5px var(--heading-color);
     padding: 10px;
     transition: box-shadow 1s;
     border-radius: 10px;
-    transform:none;
-    transition: transform 2s;
+    transition: all .5s;
     cursor: pointer;
     overflow: hidden;
 }
@@ -416,15 +416,13 @@ body{
     color: black;
     text-decoration: none;
 }
-.card-main>div:hover img{
-    /* transform: rotate3d(1, 1, 1,360deg);     */
-    height: 59%;
-
+.card-main>div:hover{
+    box-shadow:0px 0px 14px -6px var(--heading-color);
 }
 .card-main img {
     position: relative;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     z-index: 3;
     /* visibility: hidden; */
     transition: height 1s;
@@ -604,6 +602,7 @@ footer {
     height: auto;
     background-position: center;
     background-repeat: no-repeat;
+    text-align: start;
 }
 footer::after{
         content: "";
@@ -711,7 +710,7 @@ footer::after{
     height: 14vh;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 1fr 3fr 0.3fr 1.5fr;
+    grid-template-columns: 1fr 3fr 1fr 1.5fr;
     align-items: center;
 }
 .navchild1 img {
@@ -732,8 +731,9 @@ footer::after{
 .navchild2 ul li a:hover{
     color: #5ba600;
 }
-.second-navchild3{
+.second-navchild3 {
     position: relative;
+    text-align: center;
 }
 .second-navchild3 a{
     text-decoration: none;
@@ -1021,6 +1021,7 @@ footer::after{
     height: 40vh;
     background-size: cover;
     background-blend-mode: overlay;
+    background-position: center;
     background-color: rgba(0,24,77,.8);
     position: relative;
 }
@@ -1069,13 +1070,13 @@ footer::after{
 }
 /* banner */
 /* main start */
-.main-div{
+.main-div {
     position: relative;
     text-align: center;
-    height: 101vh;
+    height: 120vh;
     width: 100%;
     font-family: arial;
-    }
+}
 .main-div .clip-one{
     width: 100%;
     height: 100%;
@@ -1202,6 +1203,11 @@ footer::after{
         font-family: cursive;
         border-radius: 20px;
 }
+.image-upload{
+    padding: 15px;
+    font-size: 15px;
+    color: green;
+}
 /* registration page end */
 
 /* property page start */
@@ -1299,12 +1305,6 @@ footer::after{
 .contact-div{
     position: relative;
 }
-.contact-div:hover .contact-clip-one{
-    clip-path: polygon(0 0, 0 26%, 26% 0);
-}
-.contact-div:hover .contact-clip-two{
-    clip-path: polygon(0 0, 0 26%, 26% 0);
-}
 .contact-div:hover .touch-me{
     display: none;
 }
@@ -1318,17 +1318,6 @@ footer::after{
     clip-path: polygon(0 0, 0 100%, 100% 0);
     background-color: #061539;
     transition: clip-path 3s;
-}
-.contact-clip-two {
-display: none;
-position: absolute;
-bottom: 0px;
-width: 100%;
-transform: rotate(180deg);
-height: 100%;
-clip-path: polygon(0 0, 0 100%, 100% 0);
-background-color: #061539;
-transition: clip-path 3s;
 }
 .touch-me{
 position: absolute;
@@ -1369,6 +1358,7 @@ line-height: 1.5;
     width: 100%;
     height: 10vh;
     font-size: 20px;
+    text-decoration: none;
 }
 .button::before{
     position: absolute;
@@ -1380,7 +1370,7 @@ line-height: 1.5;
     height: 100%;
     background-color: #427A11;
     transition: all 1s;
-    z-index: -1;
+    z-index: 1;
 
 }
 .button:hover::before{
@@ -1414,30 +1404,6 @@ line-height: 1.5;
     transition: all 0.3s;
     pointer-events: none;
     color: #999;
-}
-.input:focus ~ label, .input:valid ~ label {
-    font-size: 0.75em;
-    color: #999;
-    top: 27%;
-    left: 8%;
-    -webkit-transition: all 0.225s ease;
-    transition: all 0.225s ease;
-}
-.contact-inputfeild-textarea label{
-    position: absolute;
-    top:30px;
-    left: 60px;
-    transform: translate(-50%,-50%);
-    transition: all 0.3s;
-    pointer-events: none;
-    color: #999;
-}
-.contact-inputfeild-textarea:focus ~ label, .contact-inputfeild-textarea:valid ~ label {
-    font-size: 0.75em;
-    color: #999;
-    top: 15px;
-    -webkit-transition: all 0.225s ease;
-    transition: all 0.225s ease;
 }
 /* contact page end */
 
@@ -1663,4 +1629,71 @@ line-height: 1.5;
     text-decoration: none;
 }
 /* about page design end */
+
+/* user profile start*/
+.user-profile-table input {
+    padding: 5px;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0.493);
+    font-size: 20px;
+    font-family: var(--font-family);
+    min-width: 40%;
+}
+.user-profile-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 5px solid var(--heading-color);
+}
+.user-profile-table tr td{
+    padding: 10px;
+    font-size: 20px;
+}
+.user-profile-table tr:nth-child(odd){background-color: #0d174136}
+.user-profile-table tr:nth-child(even){background-color: rgba(0, 128, 0, 0.178);}
+.user-update-details{
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--main-color);
+    padding: 5px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+.profile-header-text {
+    font-size: 25px;
+    color: var(--heading-color);
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #008000a8;
+}
+.logout{
+    text-decoration: none;
+    color: #fff;
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+.user-update-button {
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--main-color) !important;
+    /* padding: 5px; */
+    border-radius: 5px;
+    /* border: 0; */
+    font-size: 20px;
+    cursor: pointer;
+    min-width: 10% !important;
+}
+/* user profile end */
+
+
+
+/* extra */
+.user-usericon{
+    font-size: 28px;
+}
+/* extra */
+
 

@@ -10,7 +10,12 @@
     <!-- banner section end -->
     </header>
 <!-- submit header -->
-
+<?php 
+    $login = Session::get("userlogin");
+    if ($login == false) {
+        header("location:login.php");
+    }
+?>
 <!-- / basic information form start/ -->
 <section class="form-section">
     <span class="basic-information">Basic Information</span>
@@ -102,6 +107,7 @@
                 </div>
                 <div class="input-container">
                     <a href="#" style="top: 40px;left: 45%;transform: translate(-50%);" class="Submit">Submit</a>
+                            
                 </div>
             </div>
         </div>

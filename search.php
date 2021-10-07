@@ -22,7 +22,12 @@
         <!-- section 1 start-->
         <div class="serach-bar-main">
             <div class="search-bar-child searchbar-child-one">
-                <h3>21 properties</h3>
+            <?php
+                $query = "SELECT * FROM tbl_post";
+                $result = $db->select($query);
+                $total_rows = mysqli_num_rows($result);
+            ?>
+            <h3><?php echo $total_rows ?> properties</h3>
             </div>
             <div class="search-bar-child searchbar-child-two">
             <form action="search.php" method="get">

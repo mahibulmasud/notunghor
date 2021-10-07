@@ -14,7 +14,7 @@
 
     <?php
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])){
-            $userReg = $us->userRegistration($_POST);
+            $userReg = $us->userRegistration($_POST, $_FILES);
         }
     ?>
 <!-- registration header -->
@@ -30,11 +30,8 @@
             <div class="part-one">
                 <div>
                     <div class="title">
-                        <!-- <p class="login-logo">Registration</p> -->
-                        <style>
-                        
-                        </style>
-                        <h1 class="glow">Hello!</h1>
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_3mmnadsu.json"  background="transparent"  speed="1"  style="width: 300px; height: 150px;"  loop autoplay></lottie-player>
                         <p style="color: var(--paragraph-color);font-family:Rubik">Sign up to your account</p>
 
                         <?php
@@ -44,9 +41,12 @@
                         ?>
 
                     </div>
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype = "multipart/form-data">
                         <div class="input-container">
-                        <i class="fas fa-signature form-icon"></i>
+                            <input type="file" name="image" class="image-upload">
+                        </div>
+                        <div class="input-container">
+                            <i class="fas fa-signature form-icon"></i>
                             <input class="input-feild" type="text" name="userName" placeholder="Name">
                         </div>
                         <div class="input-container">
@@ -59,7 +59,7 @@
                         </div>
                         <div class="input-container">
                             <i class="fas fa-lock form-icon"></i>
-                            <input class="input-feild" type="userPass" name="userPass"
+                            <input class="input-feild" type="password" name="userPass"
                             placeholder="Password">
                         </div>
                         <br><br>
@@ -71,8 +71,8 @@
             </div>
             <div class="part-two">
             
-                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_nlydoi3a.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop autoplay></lottie-player>
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_xlmz9xwm.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
             
             </div>
                        
@@ -91,6 +91,50 @@
         document.getElementById("navchild4").style.background = "#427A11";
     })
     </script>
+               <!-- animation icon js -->
+               <script>
+            dt = document.getElementById("navchild5-top");
+            dm = document.getElementById("navchild5-middle");
+            db = document.getElementById("navchild5-bottom");
+            dd = document.getElementsByClassName("dropdown");
+            pa = document.getElementById("p");
+            function myFunction(x) {
+            document.getElementById("navchild5").addEventListener("click",function(){
+            if(dt.style.transform === "rotate(0deg)"){
+                dt.style.transform="rotate(45deg)";
+                dt.style.position="relative";
+                dt.style.top="4px";
+                dm.style.display="none";
+                db.style.transform="rotate(135deg)";
+                db.style.position="relative";
+                db.style.top="-4px";
+                dd[0].style.display = "block";
+            }else{
+                dt.style.transform="rotate(0deg)";
+                dt.style.position="static";
+                dm.style.display="block";
+                db.style.transform="rotate(0deg)";
+                db.style.position="static";
+                dd[0].style.display="none";
+            }
+        })
+        if (x.matches) { // If media query matches
+                    dd[0].style.display = "none";
+                } else {
+                dd[0].style.display = "none";
+                dt.style.transform="rotate(0deg)";
+                dt.style.position="static";
+                dm.style.display="block";
+                db.style.transform="rotate(0deg)";
+                db.style.position="static";
+                dd[0].style.display="none";
+                }
+        }
+    
+        var x = window.matchMedia("(min-width: 769px)")
+        myFunction(x)
+        x.addListener(myFunction)
+        </script>
     <!-- button overlay script -->
     <script>
         function openSearch() {

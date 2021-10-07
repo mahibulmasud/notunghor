@@ -4,13 +4,19 @@
 <div class="login-banner banner">
                     <div class="banner-overlay">
                         <h1 class="banner-header">Sign In</h1>
-                        <p> <a href="#">Home</a>  > SignIn</p>
+                        <p> <a href="index.php">Home</a>  > SignIn</p>
                         <p> or<a href="registration.php"> SignUp</a>   </p>
                     </div>
                 </div>
             <!-- banner section end -->
         </header>
 <!-- login header -->
+
+    <?php
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])){
+            $userLogin = $us->userLogin($_POST);
+        }
+    ?>
 
         <!-- main -->
         <div class="main-div">
@@ -23,43 +29,45 @@
            
             <div class="layout-main">
             <div class="part-one">
-            <div>
-                <div class="title">
-                    <!-- <p class="login-logo">Login</p> -->
-                    <h1>Hello!</h1>
-                    <p>Sign in to your account</p>
+                <div>
+                    <div class="title">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_3mmnadsu.json"  background="transparent"  speed="1"  style="width: 300px; height: 150px;"  loop autoplay></lottie-player>
+                        <p>Sign in to your account</p>
+
+                        <?php
+                            if (isset($userLogin)) {
+                                echo $userLogin;
+                            }
+                        ?>
+
+                    </div>
+                    <form action="" method="post">
+                        <div class="input-container">
+                            <i class="fas fa-envelope-open form-icon"></i>
+                            <input class="input-feild" type="text" name="userEmail" placeholder="E-mail">
+                        </div>
+                        
+                        <div class="input-container">
+                            <i class="fas fa-lock form-icon"></i>
+                            <input class="input-feild" type="password" name="userPass"
+                            placeholder="Password">
+                        </div>
+                        
+                        <input class="button" type="submit" name="login" value="SignIn">
+                
+                    </form>
                 </div>
-                <form action="" method="post">
-                    <div class="input-container">
-                        <i class="fas fa-envelope-open form-icon"></i>
-                        <input class="input-feild" type="text" name="email" placeholder="E-mail">
-                    </div>
-                    <br><br>
-                    <div class="input-container">
-                        <i class="fas fa-lock form-icon"></i>
-                        <input class="input-feild" type="password" name="password"
-                        placeholder="Password">
-                    </div>
-                    <br><br>
-                    <input class="button" type="submit" name="submit" value="SignIn">
-            
-                </form>
-            </div>
            
             </div>
             <div class="part-two">
-            <div>
-            <h1>Welcome !</h1>
-            <hr class="devider">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate fugiat dicta
-                minima, nihil repellendus pariatur reprehenderit molestias? Porro quia qui iure maiores ipsum?
-                Aut voluptate eum amet dolores facere tempora?</p>
-                 </div>
-                 </div>
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_xlmz9xwm.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+                
                  </div>
                 
                 
-                 </div>
+        </div>
 
 
     <!-- footer start -->
@@ -119,6 +127,50 @@
         document.getElementById("navchild4").style.background = "#427A11";
     })
     </script>
+               <!-- animation icon js -->
+               <script>
+            dt = document.getElementById("navchild5-top");
+            dm = document.getElementById("navchild5-middle");
+            db = document.getElementById("navchild5-bottom");
+            dd = document.getElementsByClassName("dropdown");
+            pa = document.getElementById("p");
+            function myFunction(x) {
+            document.getElementById("navchild5").addEventListener("click",function(){
+            if(dt.style.transform === "rotate(0deg)"){
+                dt.style.transform="rotate(45deg)";
+                dt.style.position="relative";
+                dt.style.top="4px";
+                dm.style.display="none";
+                db.style.transform="rotate(135deg)";
+                db.style.position="relative";
+                db.style.top="-4px";
+                dd[0].style.display = "block";
+            }else{
+                dt.style.transform="rotate(0deg)";
+                dt.style.position="static";
+                dm.style.display="block";
+                db.style.transform="rotate(0deg)";
+                db.style.position="static";
+                dd[0].style.display="none";
+            }
+        })
+        if (x.matches) { // If media query matches
+                    dd[0].style.display = "none";
+                } else {
+                dd[0].style.display = "none";
+                dt.style.transform="rotate(0deg)";
+                dt.style.position="static";
+                dm.style.display="block";
+                db.style.transform="rotate(0deg)";
+                db.style.position="static";
+                dd[0].style.display="none";
+                }
+        }
+    
+        var x = window.matchMedia("(min-width: 769px)")
+        myFunction(x)
+        x.addListener(myFunction)
+        </script>
     <!-- button overlay script -->
     <script>
         function openSearch() {
