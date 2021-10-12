@@ -17,60 +17,82 @@
     }
 ?>
 
+<!-- php -->
 <?php
-        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
-            $submitPost = $addp->submitPost($_POST, $_FILES);
-        }
+    if(!isset($_GET['id']) || $_GET['id'] == NULL){
+        header("Location: 404.php");
+    }else{
+        $id = $_GET['id'];
+    }
+?>
+<!-- php -->
+
+
+<?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])){
+        $updatePost = $addp->postUpdate($_POST, $_FILES, $id);
+    }
 ?>
 
 <!-- / basic information form start/ -->
 <section class="form-section">
     <span class="basic-information">Basic Information</span>
+
+            <?php
+                    $query = "SELECT * FROM tbl_post where id = '$id'";
+                    $post = $db->select($query);
+                    if($post){
+                            while($result = $post->fetch_assoc()){
+                ?>
+
+
+
+
     <form action="" method="POST" enctype = "multipart/form-data">
         <div id="form-one">
             <div class="form-div">
 
-            <input type="text" name="userid" value="<?php echo Session::get('uid'); ?>" style="display:none" id="#">
-
 
                 <div class="input-container title-container">
                 <?php
-                            if(isset($submitPost)){
-                                echo $submitPost;
-                            }
+                            // if(isset($submitPost)){
+                            //     echo $submitPost;
+                            // }
                         ?>
                     <legend>Proparty Title <span class="starsign">*</span></legend>
-                    <input type="text" name="title" id="#" required>
+                    <input type="text" name="title" id="#" value="<?php echo $result['title']; ?>" required>
                 </div>
                 <div class="bedbath">
                     <div class="input-container bedbath-container">
                         <legend>Bedroom <span class="starsign">*</span></legend>
-                        <input type="text" name="bedroom" id="#" required>
+                        <input type="text" name="bedroom" value="<?php echo $result['bedroom']; ?>" id="#" required>
                     </div>
                     <div class="input-container bedbath-container">
                         <legend>Bathroom <span class="starsign">*</span></legend>
-                        <input type="text" name="bathroom" id="#" required>
+                        <input type="text" name="bathroom" value="<?php echo $result['bathroom']; ?>" id="#" required>
                     </div>
                 </div>
                 <div class="input-container upload-container">
+                <legend>Previous Image </legend>
+                <img src="<?php echo $result['image']; ?>" class="previous-image" alt="">
                     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
                     <div class="file-upload">
-                        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-                        <div class="image-upload-wrap">
-                            <input class="file-upload-input" name="image" id="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" required/>
-                            <div class="drag-text">
-                                <i class="fas fa-upload upload-icon"></i>
-                                <legend class="upload-photo-text" id="upt">Drag or Upload your Photo</legend>
-                                <legend class="clean-photo" id="cp">Its must be a clean photo</legend>
-                            </div>
+                    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add new Image</button>
+                    <div class="image-upload-wrap">
+                        <input class="file-upload-input" name="image" id="file-upload-input" type='file' onchange="readURL(this);" accept="image/*"/>
+                        <div class="drag-text">
+                            <i class="fas fa-upload upload-icon"></i>
+                            <legend class="upload-photo-text" id="upt">Drag or Upload new Photo</legend>
+                            <legend class="clean-photo" id="cp">Its must be a clean photo</legend>
                         </div>
-                        <div class="file-upload-content">
-                            <img class="file-upload-image" src="#" alt="your image" />
-                            <div class="image-title-wrap">
-                            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
                     </div>
-                </div>
-            </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image" />
+                        <div class="image-title-wrap">
+                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                        </div>
+                    </div>
+                    </div>
                     <!-- ----------- -->
                 </div>
                 <!-- division district thana start -->
@@ -79,19 +101,23 @@
                     <div class="input-container srh-container">
                         <label for="">Division <span class="starsign">*</span></label>
                         <select id="cars-select" name="division" class="district-thana-dropdown" onchange="updateModels()" required>
-                        <option value="" disabled selected>--- Division ---</option>
+                        <option disabled selected>--- Division ---</option>
+                        <option selected = "selected" value="" style="display:none"><?php echo $result['division']; ?></option>
                         </select>
                     </div>
                     <div class="input-container srh-container">
                         <label for="">District <span class="starsign">*</span></label>
                         <select id="models-select" name="district" class="district-thana-dropdown" onchange="updateConfigurations()" required>
                         <option value="" disabled selected>--- District ---</option>
+                        <option selected = "selected" value="" style="display:none"><?php echo $result['district']; ?></option>
+
                         </select>
                     </div>
                     <div class="input-container srh-container">
                         <label for="">Thana <span class="starsign">*</span></label>
                         <select id="configurations-select" name="thana" class="district-thana-dropdown" required>
                             <option value="" disabled selected>--- Thana ---</option>
+                            <option selected = "selected" value="" style="display:none"><?php echo $result['thana']; ?></option>
                         </select> 
                     </div>
                 </div>
@@ -195,8 +221,9 @@
                 createConfiguration('Barisal thana 2', 'barisalth2', 'barisal'),
                 createConfiguration('Barguna thana 1', 'bargunath1', 'barguna'),
                 createConfiguration('Barguna thana 1', 'bargunath2', 'barguna'),
-                createConfiguration('Matlab', 'matlab', 'comilla'),
+                createConfiguration('Matlab', 'Matlab', 'comilla'),
                 ];
+
 
                 /**
                  * Updates District
@@ -234,62 +261,45 @@
                 <div class="srh">
                     <div class="input-container srh-container">
                         <legend>Sector No <span class="optional">(optional)</span></legend>
-                        <input type="text" name="sectorno" id="#">
+                        <input type="text" name="sectorno" value="<?php echo $result['sectorno']; ?>" id="#">
                     </div>
                     <div class="input-container srh-container">
                         <legend>Road No <span class="optional">(optional)</span></legend>
-                        <input type="text" name="roadno" id="#">
+                        <input type="text" name="roadno" value="<?php echo $result['roadno']; ?>" id="#">
                     </div>
                     <div class="input-container srh-container">
                         <legend>House No <span class="optional">(optional)</span></legend>
-                        <input type="text" name="houseno" id="#">
+                        <input type="text" name="houseno" value="<?php echo $result['houseno']; ?>" id="#">
                     </div>
                 </div>
                 <div class="input-container">
                     <legend>Address <span class="starsign">*</span></legend>
-                    <input type="text" name="address" id="#" required>
+                    <input type="text" name="address" id="#" value="<?php echo $result['address']; ?>" required>
                 </div>
                 <div class="input-container">
                     <legend>Price <span class="starsign">*</span></legend>
-                    <input type="text" name="price" id="#" required>
+                    <input type="text" name="price" id="#" value="<?php echo $result['price']; ?>" required>
                 </div>
                 <div class="input-container">
                     <legend>Google Map Link<span class="optional">(optional)</span></legend>
-                    <input type="text" name="map" id="#">
+                    <input type="text" name="map" value="<?php echo $result['map']; ?>" id="#">
                 </div>
                 <div class="input-container">
                 <legend>Description<span class="starsign">*</span></legend>
-                   <textarea name="description" id="" class="description-area" required></textarea>
+                   <textarea name="description" id="" class="description-area" required><?php echo $result['description']; ?></textarea>
                 </div>
                 <div class="input-container">
-                    <input type="submit" name="submit"  class="Submit" style="top: 40px;left: 45%;transform: translate(-50%);" value="Submit"/>
+                    <input type="submit" name="update"  class="Submit" style="top: 40px;left: 45%;transform: translate(-50%);" value="Update"/>
                             
                 </div>
             </div>
             
         </div>
-        <!-- /Contact details form start/ -->
-        <!-- <span class="basic-information">Contact Details</span>
-        <div id="form-two">
-            <div class="form-div">
-                <div class="srh">
-                    <div class="input-container srh-container">
-                        <input type="text" name="name" id="#" placeholder="Name *">
-                    </div>
-                    <div class="input-container srh-container">
-                        <input type="text" name="email" id="#" placeholder="Email *">
-                    </div>
-                    <div class="input-container srh-container">
-                        <input type="text" name="mobileno" id="#" placeholder="Mobile No *">
-                    </div>
-                </div>
-                <div class="input-container">
-                   <textarea name="description" id="" class="description-area" placeholder="Description *"></textarea>
-                </div>
-
-            </div>
-        </div> -->
     </form>
+    <?php
+            }
+        }
+        ?>
 </section>
 
 <!-- /form end/ -->

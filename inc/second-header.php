@@ -5,6 +5,7 @@
     include('lib/Database.php'); 
     include('helpers/format.php');
     include_once('classes/User.php');
+    include_once('classes/Addpost.php');
 
  ?>
 <?php
@@ -16,6 +17,7 @@
     $db = new Database();
     $fm = new Format();
     $us = new User();
+    $addp = new Addpost();
 ?>
 
 
@@ -34,6 +36,8 @@
     <link rel="stylesheet" href="css/fontawesomeCss/fontawesome.min.css">
     <!-- google font link -->
    <link rel="stylesheet" href="css/font.css">
+   <!-- jquery link -->
+   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
     <title><?php echo $fm ->title(); ?> - <?php echo title; ?></title>
 </head>
 <body style="background: #F5F6F7;">
@@ -74,7 +78,9 @@
                             $login = Session::get("userlogin");
                             if ($login == false) {
                             ?>
-                            <i class="far fa-user-circle user-usericon"></i>
+                            <a href="login.php"><abbr title="profile">
+                                <i class="far fa-user-circle user-usericon"></i>
+                                </abbr></a>
                             <p style="font-size:12px">username</p>
                             <?php
                             }else{

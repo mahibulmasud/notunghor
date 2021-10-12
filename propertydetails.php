@@ -1,4 +1,4 @@
-<?php //ob_start(); ?>
+
 <!-- second header -->
 <?php include('inc/second-header.php'); ?>
  <!-- banner section start -->
@@ -51,7 +51,7 @@
             </div>
             <!-- image -->
             <div class="container">
-                <img src="images/<?php echo $result['image']; ?>" alt="property ads" width="100%">
+                <img src="<?php echo $result['image']; ?>" alt="property ads" width="100%">
             </div>
         </section> 
         <!-- section 1 end-->
@@ -60,54 +60,95 @@
         <section class="pd-sectiontwo">
             <div class="main-content-main container">
                 <div>
-                    <h2 class="st-description">Description</h2>
+                    <div class="roomdetails-area">
+                    <h2 class="st-header">Description</h2>
                     <p class="st-description-p"><?php echo $result['description']; ?></p>
-                    
-
-<?php } ?> <!-- while loop end -->
-
-<?php } else { header("Location:404.php");}  ?><!-- if end --> 
-
-
-                        <div class="comment-area">
-                        <h1>Post Your Comment</h1><br>
-                        <hr class="comment-hr">
-                        <br><br>
-                        <form action="">
-                            <div class="comment-name-email-main">
-                                <div>
-                                    <label class="comment-label" for="">Enter Your Name</label><br>
-                                    <input type="text" placeholder="Your name here..." class="comment-input">
-                                </div>
-                                <div>
-                                    <label class="comment-label" for="">Enter Your Mail</label><br>
-                                    <input type="email" name="" id="" placeholder="Your email here..." class="comment-input">
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <label class="comment-label" for="">Enter Your Message</label><br>
-                                    <textarea name="'" id="" cols="55" rows="10" placeholder="Enter your message here..." class="comment-input"></textarea>
-                                    <br><br><br><br>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="#" class="comment-submit-button">Submit Now</a>
-                            </div>
-                        </form>
                     </div>
+                    
+                   
+                    
+                    <div class="roomdetails-area">
+                    <h2 class="st-header">Room details</h2>
+                        <div class="rm-dt-main-div">
+                                <div class="rm-dt-child-1"><p><b>Bedroom:</b> <?php echo $result['bedroom']; ?></p></div>
+                                <div><p><b>Bathroom:</b> <?php echo $result['bathroom']; ?></p></div>
+                                <div><p><b>Division:</b> <?php echo $result['division']; ?></p></div>
+                                <div><p><b>District:</b> <?php echo $result['district']; ?></p></div>
+                                <div><p><b>Thana:</b> <?php echo $result['thana']; ?></p></div>
+                                <div><p><b>Sector No:</b> <?php echo $result['sectorno']; ?></p></div>
+                                <div><p><b>Road no:</b> <?php echo $result['roadno']; ?></p></div>
+                                <div><p><b>House No:</b> <?php echo $result['houseno']; ?></p></div>
+                                <div class="rm-dt-child-address"><p><b>Address:</b> <?php echo $result['address']; ?></p></div>
+                        </div>
+                    </div>
+
+                    <?php
+                        $query = "SELECT map FROM tbl_post WHERE id =$id";
+                    ?>
+
+                    <div class="roomdetails-area">
+                        <h2 class="st-header">Home Location</h2>
+                        <div class="rm-dt-map-div">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d912.1830877651997!2d90.40066332916444!3d23.863636125488497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c42679a2e2ff%3A0xae19b0c36379a55f!2s40%20Road%207%2C%20Dhaka%201230!5e0!3m2!1sen!2sbd!4v1633714193181!5m2!1sen!2sbd" allowfullscreen="true" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
+                    <?php } ?> <!-- while loop end -->
+
+                    <?php } else { header("Location:404.php");}  ?><!-- if end --> 
+
                 </div>
                 <div>
                     <div class="seller-minipro-div">
-                        <h3 class="seller-about-h3 txt-center">About Me</h3>
-                        <img src="images/masud1.jpg" class="seller-image" alt="">
-                        <p class="seller-name txt-center">Kazi Masudur Rahman</p>
+                    <h3 class="seller-about-h3 txt-center">About Me</h3>
+                    <?php 
+                        $login = Session::get("userlogin");
+                        if ($login == false) {
+                    ?>
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_xyadoh9h.json"  background="transparent"  speed="1"  style=" height: 300px;"  loop  autoplay></lottie-player>
+                        <p class="seller-description txt-center">Please Login First For Contact Information</p>
+                        
+                    <?php
+                    }else{
+                        ?>
+                        <?php
+                            $query = "SELECT *
+                                      FROM tbl_post
+                                      JOIN tbl_user
+                                      ON tbl_post.userId = tbl_user.userId WHERE id =$id";
+
+                            $post = $db->select($query);
+                            if ($post) {
+                            while($result = $post->fetch_assoc()){
+                            ?>
+                        <img src="<?php echo $result['userImage']; ?>" class="seller-image" alt="">
+                        <p class="seller-name txt-center"><?php echo $result['userName']; ?></p>
                         <p class="seller-description txt-center">Lorem ipsum dolor amet, Lore ipsum dolor sit amet, consectetur et eiLorem ipsum dolor sit amet</p>
+                        <div class="seller-icon-main-row">
+                            <div>
+                            <div class="tooltip"><i class="fas fa-mobile-alt seller-info-icon"></i>
+                                <span class="tooltiptext"><?php echo $result['mobileNo']; ?></span>
+                            </div>
+                            </div>
+                            <div><i class="fab fa-facebook-f seller-info-icon"></i></div>
+                            <div><i class="fab fa-twitter seller-info-icon"></i></div>
+                            <div><i class="fab fa-instagram seller-info-icon"></i></div>
+                        </div>
+                        
+                        <?php
+                            } 
+                          }
+                        }
+                        ?>
                     </div>
                 </div>
+                
             </div>
+            
         </section>
         <!-- section 2 end-->
+        
     </main>
 
 <div style="margin:50px"></div>

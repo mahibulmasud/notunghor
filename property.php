@@ -54,7 +54,7 @@
                             <!-- Pagination -->
                             <!-- php -->
                             <?php
-                                $query = "SELECT * FROM tbl_post limit $start_form, $per_page";
+                                $query = "SELECT * FROM tbl_post ORDER BY id DESC limit $start_form, $per_page";
                                 $post = $db->select($query);
                                 if($post){
                                     while($result = $post->fetch_assoc()){        
@@ -62,7 +62,7 @@
                             <!-- php -->
                             <div class="card-area" style="position: relative;">
                             <a href="propertydetails.php?id=<?php echo $result['id']; ?>" class="card-link">
-                                <img src='images/<?php echo $result['image'] ?>'>
+                                <img src='<?php echo $result['image'] ?>'>
                                 <h2 class="card-price"><?php echo $result['price'] ?></h2>
                                      
                                         <h3 class="card-title"><?php echo $result['title'] ?></h3>

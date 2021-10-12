@@ -48,6 +48,9 @@ body{
     border-radius: 25px 22px 25px 0px;
     box-shadow: -3px 3px 0px 0px white;
 }
+.font{
+    font-family: "Rubik", sans-serif;
+}
 /* scrollbar design */
 /* width */
 ::-webkit-scrollbar {
@@ -404,7 +407,7 @@ body{
 }
 .card-main>div{
     position: relative;
-    box-shadow: 0px 0px 8px -5px var(--heading-color);
+    box-shadow: 0px 0px 8px -5px var(--main-color);
     padding: 10px;
     transition: box-shadow 1s;
     border-radius: 10px;
@@ -417,12 +420,12 @@ body{
     text-decoration: none;
 }
 .card-main>div:hover{
-    box-shadow:0px 0px 14px -6px var(--heading-color);
+    box-shadow:0px 0px 14px -6px var(--main-color);
 }
 .card-main img {
     position: relative;
     width: 100%;
-    /* height: 100%; */
+    height: 59%;
     z-index: 3;
     /* visibility: hidden; */
     transition: height 1s;
@@ -694,6 +697,7 @@ footer::after{
     /* width: 40%; */
     z-index: 1;
     overflow: hidden;
+    cursor: pointer;
 }
 .copyright-text{
     display: block;
@@ -796,7 +800,9 @@ footer::after{
 }
 /* second nav end */
 /* submit page design start */
-
+.starsign{
+    color: red;
+}
 .form-section{
     width: 80%;
     margin: 100px auto;
@@ -828,6 +834,15 @@ footer::after{
 .bedbath-container{
     width: 50%;
 }
+.district-thana-dropdown{
+    width: 100%;
+    height: 50px;
+    padding: 0 18px;
+    border: 1px solid #f2f2f2;
+    background: #fbfbfb;
+    font-size: 18px;
+    color: var(--paragraph-color);
+}
 .srh{
     display: flex;
 }
@@ -843,9 +858,8 @@ footer::after{
 .fa-upload{
     font-size: 80px;
 }
-.upload-photo-text{
-    color: #999999;
-    font-size: 34px;
+.upload-photo-text {
+    font-size: 25px;
     margin-bottom: 5px;
     font-weight: bold;
 }
@@ -857,7 +871,8 @@ footer::after{
     background-color: #ffffff;
     width: auto;
     margin: 0 auto;
-  }
+    padding: 0 10px 10px 10px;
+}
   
   .file-upload-btn {
     width: 100%;
@@ -908,15 +923,17 @@ footer::after{
     margin-top: 20px;
     border: 4px dashed #1FB264;
     position: relative;
-    padding: 70px 20px;
+    padding: 32px 20px;
 }
   
-  .image-dropping,.image-upload-wrap:hover {
+  .image-dropping,.image-upload-wrap:hover{
     background-color: #1FB264;
     border: 4px dashed #ffffff;
     color: #fff;
   }
-  
+  /* .upload-photo-text,.image-upload-wrap:hover{
+    color: #fff;
+  } */
   .image-title-wrap {
     color: #222;
   }
@@ -980,31 +997,38 @@ footer::after{
     font-family: "Rubik", sans-serif;
 }
 .clean-photo{
-    color: #999999;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 24px;
 }
-.basic-information{
-        height: 50px;
-        line-height: 50px;
-        padding: 0 35px;
-        overflow: hidden;
-        position: relative;
-        border: 0;
-        transition: all 2s ease;
-        font-size: 15px;
-        display: inline-block;
-        transform: perspective(1px) translateZ(0);
-        border-radius: 0;
-        background-color: chartreuse;
-        position: relative;
-        top: 3px;
+.upload-icon{
+    font-size: 45px;
+}
+.basic-information {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 35px;
+    overflow: hidden;
+    position: relative;
+    border: 0;
+    transition: all 2s ease;
+    font-size: 20px;
+    display: inline-block;
+    transform: perspective(1px) translateZ(0);
+    border-radius: 0;
+    background-color: #5ba600;
+    position: relative;
+    top: 3px;
+    color: #fff;
 }
 .input-container{
     margin:10px 0px;
 }
 .input-container legend{
     margin: 10px 0px;
+}
+.input-container label {
+    margin: 10px 0px;
+    display: block;
 }
 .input-container input[type=text] {
     width: 100%;
@@ -1013,6 +1037,7 @@ footer::after{
     border: 1px solid #f2f2f2;
     background: #fbfbfb;
     font-size: 18px;
+    color: var(--paragraph-color);
 }
 /* -------------------------------------- */
 /* registration page start */
@@ -1073,7 +1098,7 @@ footer::after{
 .main-div {
     position: relative;
     text-align: center;
-    height: 120vh;
+    height: 150vh;
     width: 100%;
     font-family: arial;
 }
@@ -1432,8 +1457,9 @@ line-height: 1.5;
 .pd-sectiontwo{
     margin: 50px 0px;
 }
-.st-description{
-    line-height: 40px;
+.st-header {
+    /* line-height: 64px; */
+    margin-bottom: 15px;
     color: var(--heading-color);
 }
 .st-description-p {
@@ -1443,6 +1469,37 @@ line-height: 1.5;
     font-size: 18px;
     margin-bottom: 50px;
 }
+.roomdetails-area {
+    padding: 40px 25px;
+    background-color: #fff;
+    margin: 20px 0px;
+    border-radius: 10px;
+}
+.roomdetails-area:first-child{
+    margin:0px;
+}
+.rm-dt-main-div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px 20px;
+}
+.rm-dt-child-address{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.rm-dt-main-div p{
+    font-size: 18px;
+    color: var(--paragraph-color);
+}
+.rm-dt-map-maindiv{
+    margin: 30px 0px;
+}
+.rm-dt-map-div iframe{
+    width: 100%;
+    height: 400px;
+    border: 0;
+
+}
 .main-content-main{
     display: grid;
     grid-template-columns: 8fr 4fr;
@@ -1450,16 +1507,20 @@ line-height: 1.5;
 }
 /*  */
 
-.seller-minipro-div{
+.seller-minipro-div {
     display: grid;
     background-color: #fff;
     padding: 30px;
+    border-radius: 10px;
 }
-.seller-about-h3{
+.seller-about-h3 {
     font-size: 25px;
-    /* border-left: 3px solid var(--main-color); */
-    /* padding-left: 10px; */
+    border-left: 3px solid var(--main-color);
+    padding-left: 10px;
     color: var(--heading-color);
+    display: inline;
+    width: 140px;
+    margin: 0 auto;
 }
 .seller-image{
     width: 120px;
@@ -1476,6 +1537,25 @@ line-height: 1.5;
     line-height: 25px;
     margin-top: 10px;
     color: var(--paragraph-color);
+}
+.seller-icon-main-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 60%;
+    margin: 10px auto;
+}
+.seller-icon-main-row>div{
+    text-align: center;
+}
+.seller-info-icon {
+    padding: 10px;
+    color: var(--paragraph-color);
+    cursor: pointer;
+    /* background-color: blanchedalmond; */
+    font-size: 20px;
+}
+.seller-info-icon:hover{
+    color: var(--main-color);
 }
 .comment-hr{
     border: 0;
@@ -1657,8 +1737,8 @@ line-height: 1.5;
     padding: 5px;
     border-radius: 5px;
     border: 0;
-    font-size: 20px;
     cursor: pointer;
+    display: inline-block;
 }
 .profile-header-text {
     font-size: 25px;
@@ -1673,6 +1753,8 @@ line-height: 1.5;
     background-color: red;
     padding: 5px;
     border-radius: 5px;
+    display: inline-block;
+    margin-top: 5px;
 
 }
 .user-update-button {
@@ -1686,6 +1768,9 @@ line-height: 1.5;
     cursor: pointer;
     min-width: 10% !important;
 }
+.edit-profile-image-input{
+    width: 40%;
+}
 /* user profile end */
 
 
@@ -1694,6 +1779,56 @@ line-height: 1.5;
 .user-usericon{
     font-size: 28px;
 }
+.user-usericon:hover{
+    color: var(--main-color);
+}
+.previous-image{
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: 200px;
+}
 /* extra */
+
+/* tooltip text start */
+.tooltip {
+    position: relative;
+    display: inline;
+    width: fit-content;
+}
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+/* tooltip text end */
 
 

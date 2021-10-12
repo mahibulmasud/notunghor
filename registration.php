@@ -43,7 +43,7 @@
                     </div>
                     <form action="" method="POST" enctype = "multipart/form-data">
                         <div class="input-container">
-                            <input type="file" name="image" class="image-upload">
+                            <input type="file" name="image" value="image-upload" class="image-upload">
                         </div>
                         <div class="input-container">
                             <i class="fas fa-signature form-icon"></i>
@@ -56,6 +56,10 @@
                         <div class="input-container">
                             <i class="fas fa-envelope-open form-icon"></i>
                             <input class="input-feild" type="text" name="userEmail" placeholder="E-mail">
+                        </div>
+                        <div class="input-container">
+                            <i class="fas fa-mobile-alt form-icon"></i>
+                            <input class="input-feild" type="text" name="mobileno" placeholder="Mobile No">
                         </div>
                         <div class="input-container">
                             <i class="fas fa-lock form-icon"></i>

@@ -181,8 +181,9 @@
         }
     /* responsive design for property page */
     /* responsive design for property details page */
-    .pd-main{
+    .pd-main {
         grid-template-columns: 1fr;
+        grid-gap: 20px;
     }
     .pd-childtwo-h1{
         text-align: start;
@@ -325,8 +326,22 @@
     }
     .user-profile-table input {
         min-width: 100%;
+        font-size: 15px;
+    }
+    .edit-profile-image-input{
+        width: 100%;
+    }
+    .user-profile-table {
+        width: 95%;
+        margin: 0 auto;
     }
    /* responsive design for user profile page 600px */
+   .rm-dt-main-div>div{
+    grid-column: 1/4;
+   }
+   .roomdetails-area {
+    margin: 20px 20px;
+    }
 }
 /* responsive design for index page end */
 /* responsive design for second headder start */

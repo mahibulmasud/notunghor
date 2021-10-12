@@ -22,6 +22,7 @@
         $userName = mysqli_real_escape_string($this->db->link, $data['userName']);
         $userUsername = mysqli_real_escape_string($this->db->link, $data['userUsername']);
         $userEmail = mysqli_real_escape_string($this->db->link, $data['userEmail']);
+        $mobileno = mysqli_real_escape_string($this->db->link, $data['mobileno']);
         $userPass = mysqli_real_escape_string($this->db->link, md5($data['userPass']));
 
         $permited = array('jpg', 'jpeg', 'png', 'gif');
@@ -49,7 +50,7 @@
         }
         else {
             move_uploaded_file($file_temp, $uploaded_image);
-            $query = "INSERT INTO tbl_user(userName,userUsername,userEmail,userImage,userPass) VALUES('$userName', '$userUsername', '$userEmail','$uploaded_image', '$userPass')";
+            $query = "INSERT INTO tbl_user(userName,userUsername,userEmail,userImage,mobileNo,userPass) VALUES('$userName', '$userUsername', '$userEmail','$uploaded_image', '$mobileno', '$userPass')";
             $inserted_row = $this->db->insert($query);
             if ($inserted_row) {
                 $msg = "<p style='color:green;'>User Data Inserted Successfully</p>";
@@ -93,6 +94,7 @@
         $userName = mysqli_real_escape_string($this->db->link, $data['userName']);
         $userUsername = mysqli_real_escape_string($this->db->link, $data['userUsername']);
         $userEmail = mysqli_real_escape_string($this->db->link, $data['userEmail']);
+        $mobileno = mysqli_real_escape_string($this->db->link, $data['mobileno']);
         // $userPass = mysqli_real_escape_string($this->db->link, md5($data['userPass']));
 
         $permited = array('jpg', 'jpeg', 'png', 'gif');
@@ -112,7 +114,8 @@
                       userName = '$userName',
                       userUsername = '$userUsername',
                       userImage = ' $uploaded_image',
-                      userEmail = '$userEmail'
+                      userEmail = '$userEmail',
+                      mobileNo = '$mobileno'
                       WHERE userId = '$id'";
             $updated_row = $this->db->update($query);
             if ($updated_row) {
@@ -136,7 +139,8 @@
                       SET
                       userName = '$userName',
                       userUsername = '$userUsername',
-                      userEmail = '$userEmail'
+                      userEmail = '$userEmail',
+                      mobileNo = '$mobileno'
                       WHERE userId = '$id'";
             $updated_row = $this->db->update($query);
             if ($updated_row) {

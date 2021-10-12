@@ -33,7 +33,7 @@
                     <div class="title">
                     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                     <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_3mmnadsu.json"  background="transparent"  speed="1"  style="width: 300px; height: 150px;"  loop autoplay></lottie-player>
-                        <p>Sign in to your account</p>
+                        <p class="font">Sign in to your account</p>
 
                         <?php
                             if (isset($userLogin)) {

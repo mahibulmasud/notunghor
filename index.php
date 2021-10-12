@@ -13,7 +13,6 @@
                 <!-- card start  -->
                 <div class="card-main container">
 
-
                     <!-- php -->
                     <?php
                         $query = "SELECT * FROM tbl_post ORDER BY id DESC limit 6";
@@ -26,7 +25,7 @@
 
                     <div class="card-area" style="position: relative;">
                     <a href="propertydetails.php?id=<?php echo $result['id']; ?>" class="card-link">
-                    <img src='images/<?php echo $result['image']; ?>'>
+                    <img src="<?php echo $result['image']; ?>" alt="">
                         <h2 class="card-price"><?php echo $result['price']; ?></h2>
                              
                                 <h3 class="card-title"><?php echo $result['title']; ?></h3>

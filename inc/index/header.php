@@ -1,10 +1,11 @@
 <?php 
-    // ob_start();
+    ob_start();
     include('lib/Session.php');
     Session::init();
     include('lib/Database.php'); 
     include('helpers/format.php');
     include_once('classes/User.php');
+    include_once('classes/Addpost.php');
     
     spl_autoload_register(function($class){
         include_once "classes/".$class.".php";
@@ -15,6 +16,7 @@
     $db = new Database();
     $fm = new Format();
     $us = new User();
+    $addp = new Addpost();
 ?>
 
 
@@ -113,7 +115,9 @@
                             $login = Session::get("userlogin");
                             if ($login == false) {
                             ?>
-                            <i class="far fa-user-circle user-usericon"></i>
+                            <a href="login.php"><abbr title="profile">
+                                <i class="far fa-user-circle user-usericon"></i>
+                                </abbr></a>
                             <p style="font-size:12px">username</p>
                             <?php
                             }else{
