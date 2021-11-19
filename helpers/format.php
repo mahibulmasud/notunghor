@@ -4,7 +4,11 @@
     class Format {
         // date formation
         public function formatDate($date){
-            return date('F j,Y, g:i a',strtotime($date));
+            // return date('F j,Y, g:i a',strtotime($date));
+            return date('F j,Y',strtotime($date));
+        }
+        public function formatTime($date){
+            return date('g:i a',strtotime($date));
         }
         //readmore formation
         public function textShorten($text,$limit = 400){

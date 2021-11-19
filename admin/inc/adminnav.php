@@ -1,6 +1,18 @@
 <?php 
     include '../lib/Session.php';
     Session::checkSession();
+    include('../lib/Database.php'); 
+    include('../helpers/format.php');
+    include_once ('../classes/SiteOption.php');
+    include_once ('../classes/SiteSocial.php');
+    include_once ('../classes/Changepassword.php');
+?>
+<?php
+    $db = new Database();
+    $fm = new Format();
+    $so = new SiteOption();
+    $ss = new SiteSocial();
+    $cp = new Changepassword();
 ?>
 
 <!DOCTYPE html>
@@ -9,8 +21,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- favicon -->
     <link rel="icon" href="images/mobile-logo.png" type="image/gif" sizes="16x16">
     <!-- font-awesome cdn link -->
@@ -32,22 +44,43 @@
     <div class="displayleft-structure">
             <!--admin nav start -->
         <div class="nav-container">
-            <img src="images/logo.png" alt="notunghor logo" width="100%">
+            <a href="../index.php" target="_blank">
+            <?php
+            $query = "SELECT * FROM tbl_siteoption";
+            $post = $db->Select($query);
+            if($post){
+                while($result = $post->fetch_assoc()){
+            ?>
+            <img src="<?php echo $result['logo'] ?>" alt="notunghor logo" width="260px">
+
+            <?php }} ?>
+
+            </a>
             <div style="margin: 50px;"></div>
+
+                                <?php
+                                    $path = $_SERVER['SCRIPT_FILENAME'];
+                                    $currentpage = basename($path, '.php');
+                                ?>
+
             <ul>
-                <li class="active">
-                    <i class="fas fa-tachometer-alt active-icon"></i>
-                    <a href="index.php" class="active" id="dashboard">Dashboard</a>
+                <li>
+                <a <?php if($currentpage == 'index'){echo 'class="active"';} ?> href="index.php">
+                    <i class="fas fa-tachometer-alt active-icon"></i>Dashboard
+                </a>
                 </li>
                 <li>
-                    <i class="far fa-user-circle nav-icon active-icon"></i>
-                    <a href="profile.php" class="lista">Profile</a>
+                    <a <?php if($currentpage == 'profile'){echo 'class="active"';} ?> href="profile.php">
+                        <i class="far fa-user-circle active-icon"></i>Profile
+                    </a>
                 </li>
-                <li class="active" id="main-li">
-                    <i class="fa fa-sitemap active-icon"></i>
-                    <a href="siteoptions.php" class="active">Site Options</a>
-                    <i class="fas fa-arrow-circle-down sub-menu-icon" id="sub-menu-icon-down"></i>
-                    <i class="fas fa-arrow-circle-up sub-menu-icon" id="sub-menu-icon-up"></i>
+                <li>
+
+                    <a <?php if($currentpage == 'siteoptions'){echo 'class="active"';} ?> href="siteoptions.php">
+                    <i class="fas fa-sitemap active-icon" ></i>Site Options
+                    </a>
+                        <i class="fas fa-arrow-circle-down sub-menu-icon1" id="sub-menu-icon-down"></i>
+                        <i class="fas fa-arrow-circle-up sub-menu-icon2" id="sub-menu-icon-up"></i>
                     <div class="sub-menu" id="dropdown">
                         <ul>
                             <li><a href="logo.php" id="logo">Logo</a></li>
@@ -59,21 +92,48 @@
                         
                 </li>
                 <li>
-                    <i class="fas fa-lock nav-icon active-icon" class="lista"></i>
-                    <a href="changepassword.php">Change Password</a>
+                    <a <?php if($currentpage == 'changepassword'){echo 'class="active"';} ?> href="changepassword.php">
+                        <i class="fas fa-lock active-icon" ></i>Change Password
+                    </a>
                 </li>
                 <li>
-                    <i class="far fa-envelope nav-icon active-icon"></i>
-                    <a href="inbox.php" class="lista">Inbox</a>
+                    <a <?php if($currentpage == 'inbox'){echo 'class="active"';} ?> href="inbox.php">
+                    <i class="far fa-envelope active-icon"></i>Inbox
+
+                    <!-- inbox php -->
+                    <?php
+                        $query = "SELECT * FROM tbl_contact WHERE status='0'";
+                        $msg = $db->select($query);
+                        if($msg){
+                            $count = mysqli_num_rows($msg);
+                            echo "(".$count.")";
+                        }else{
+                            echo "(0)";
+                        }
+                ?>
+                    <!-- inbox php -->
+
+
+                    </a>
                 </li>
+
+    
+
+
+
+
+
+
+
+
                 <li>
                     <?php
                         if (isset($_GET['action']) && $_GET['action'] == "logout") {
                             Session::destroy();
                         }
                     ?>
-                    <i class="fas fa-sign-out-alt nav-icon active-icon"></i>
-                    <a href="?action=logout" class="lista">Signout</a>
+                    
+                    <a href="?action=logout" ><i class="fas fa-sign-out-alt nav-icon active-icon"></i>Signout</a>
                 </li>
             </ul>
         </div>

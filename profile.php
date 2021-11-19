@@ -13,7 +13,7 @@
 
 
 <div class="space"></div>
-<div class="container">
+<div class="container profile-container">
     <?php
         $id =  Session::get("uid");
         $getdata = $us->getUserData($id);
@@ -22,9 +22,21 @@
 
     ?>
     <table class="user-profile-table">
-        <tr>
-            <td colspan="3" style="text-align:center;"> <b class="profile-header-text">My Profile Details</b></td>
+        <tr style="box-shadow:0px 3px 15px 0px rgb(0 0 0 / 6%)">
+            <td colspan="3" style="text-align:center;"> 
+            <b class="profile-header-text">My Profile Details</b>
+        </td>
         </tr>
+        <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
         <tr>
             <td width="15%"><b>Profile Picture</b></td>
             <td width="5%"><b>:</b></td>
@@ -51,6 +63,21 @@
             <td><?php echo $result['mobileNo']; ?></td>
         </tr>
         <tr>
+            <td><b>Facebook</b></td>
+            <td><b>:</b></td>
+            <td><input type="text" style="width:100%" readonly value="<?php echo $result['facebook']; ?>"></td>
+        </tr>
+        <tr>
+            <td><b>Twitter</b></td>
+            <td><b>:</b></td>
+            <td><input type="text" style="width:100%" value="<?php echo $result['twitter']; ?>"></td>
+        </tr>
+        <tr>
+            <td><b>Instagram</b></td>
+            <td><b>:</b></td>
+            <td><input type="text" style="width:100%" value="<?php echo $result['instagram']; ?>"></td>
+        </tr>
+        <tr>
             <td></td>
             <td></td>
             <td> 
@@ -58,6 +85,11 @@
                 <a href="?uid=<?php Session::get('uid'); ?>" class="logout">Logout</a>
             </td>
         </tr>
+        <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
     </table>
         <?php
             }
@@ -65,11 +97,17 @@
         ?>
 </div>
 <div class="space"></div>
-<div class="container">
+<div class="container profile-container">
     <table class="user-profile-table">
-        <tr>
+        <tr style="box-shadow:0px 3px 15px 0px rgb(0 0 0 / 6%)">
             <td colspan="4" style="text-align:center;"> <b class="profile-header-text">My Ads Info</b></td>
         </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
         <tr>
             <td align="start" style="padding-left:10px"><b></b> Property ID</td>
             <td>Image</td>
@@ -85,15 +123,18 @@
                     ON tbl_post.userId = tbl_user.userId where tbl_post.userId = '$id'";
                     $post = $db->select($query);
                     if($post){
+                        $i=0;
                             while($result = $post->fetch_assoc()){
+                                $i++;
                 ?>
 
         <tr>
-            <td width="15%"><span><?php echo $result['id'] ?></span></td>
+            <td width="15%"><span><?php echo $i ?></span></td>
             <td><img src="<?php echo $result['image']; ?>" width='100px' alt=""></td>
             <td><?php echo $result['title'] ?></td>
             <td>
-            <a href="editpost.php?id=<?php echo $result['id']; ?>" class="user-update-details">Edit</a>
+            <a href="propertydetails.php?id=<?php echo $result['id']; ?>" class="user-update-details">View</a>
+            <a href="editpost.php?id=<?php echo $result['id']; ?>" id="btn-heading" class="user-update-details">Edit</a>
             <a href="deletepost.php?deletepostid=<?php echo $result['id']; ?>" class="logout">Delete</a>
                 
         </td>

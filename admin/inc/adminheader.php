@@ -11,9 +11,10 @@
             <input type="search" name="" id="" placeholder="Search here">
         </div>
         <div class="am-child-three">
-            
-            <img src="images/masud1.jpg" alt="">
-            <p><?php echo Session::get('adminName'); ?></p>
+            <div>
+                <img src="<?php echo Session::get('adminImage'); ?>" alt="">
+                <p><?php echo Session::get('adminUser'); ?></p>
+            </div>
         </div>
     </div>
     <!-- admin header end -->

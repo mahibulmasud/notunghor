@@ -4,8 +4,8 @@
     <main>
         <section style="position: relative;">
             <!-- design -->
-            <div class="left-design"></div>
-            <div class="right-design"></div>
+            <!-- <div class="left-design"></div>
+            <div class="right-design"></div> -->
             <!-- design -->
             <h1 class="section-header smd" data-aos="fade-right">Recent Ads <span class="ads-header-snd">For You</span></h1>
             <hr class="horizontal-line">

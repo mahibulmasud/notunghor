@@ -1,15 +1,17 @@
 <?php 
-    ob_start();
-    include('lib/Session.php');
-    Session::init();
+    // ob_start();
+    // include('lib/Session.php');
+    // Session::init();
+    session_start();
     include('lib/Database.php'); 
     include('helpers/format.php');
     include_once('classes/User.php');
     include_once('classes/Addpost.php');
+    include_once ('classes/SiteOption.php');
     
-    spl_autoload_register(function($class){
-        include_once "classes/".$class.".php";
-    });
+    // spl_autoload_register(function($class){
+    //     include_once "classes/".$class.".php";
+    // });
 
  ?>
 <?php
@@ -17,6 +19,7 @@
     $fm = new Format();
     $us = new User();
     $addp = new Addpost();
+    $so = new SiteOption();
 ?>
 
 
@@ -56,7 +59,7 @@
                         <td><i class="fas fa-phone-volume"></i></td>
                         <td style="padding-left: 5px;">01980573501</td>
                         <td class="small-device"><i class="fas fa-envelope"></i></td>
-                        <td class="small-device" style="padding-left: 5px;">masudur15-1743@diu.edu.bd</td>
+                        <td class="small-device" style="padding-left: 5px;">admin@notunghor.com</td>
                     </tr>
                 </table>
             </div>
@@ -86,11 +89,24 @@
             </div>
             <div class="top3">
                 <table>
-                    <tr>
-                        <td><i class="fab fa-facebook-f"></i></td>
-                        <td><i class="fab fa-twitter"></i></td>
-                        <td><i class="fab fa-instagram"></i></td>
-                    </tr>
+                        <?php
+                            $query = "SELECT * FROM tbl_sitesocial";
+                            $post = $db->select($query);
+                            if($post){
+                                    while($result = $post->fetch_assoc()){
+                        ?>
+
+                            <tr>
+                                <td><a href="<?php echo $result['facebook']; ?>" class="header-sicon"  target="_blank"><i class="fab fa-facebook-f"></i></a></td>
+                                <td><a href="<?php echo $result['twitter']; ?>" class="header-sicon"  target="_blank"><i class="fab fa-twitter"></i></a></td>
+                                <td><a href="<?php echo $result['instagram']; ?>" class="header-sicon" target="_blank"><i class="fab fa-instagram"></i></a></td>
+                            </tr>
+
+
+                            <?php
+                                }
+                            }
+                            ?>
                 </table>
             </div>
         </div>
@@ -98,12 +114,44 @@
         <nav class="container">
             <div class="nav-main">
                 <div class="navchild1">
-                    <a href="index.php"><img src="images/logo.png" alt="sitelogo"></a>
+                    <div class="logo-for-desktop-div">
+                        <a href="index.php">                       
+                            <?php
+                                    $query = "SELECT * FROM tbl_siteoption";
+                                    $post = $db->select($query);
+                                    if($post){
+                                            while($result = $post->fetch_assoc()){
+                                ?>
+        
+                                <img src="admin/<?php echo $result['logo']; ?>" alt="sitelogo">
+                                <?php
+                                    }
+                                }
+                                ?>
+                        </a>
+                    </div>
+                    <div class="mobile-logo-div">
+                        <a href="index.php">                       
+                            <?php
+                                    $query = "SELECT * FROM tbl_siteoption";
+                                    $post = $db->select($query);
+                                    if($post){
+                                            while($result = $post->fetch_assoc()){
+                                ?>
+        
+                                <img class="mobile-logo" src="admin/<?php echo $result['mobilelogo']; ?>" alt="sitelogo">
+                                <?php
+                                    }
+                                }
+                                ?>
+                        </a>
+                    </div>
+                    
                 </div>
                 <div class="navchild2">
                     <div>
                         <ul>
-                            <li><a id="active" href="#">Home</a></li>
+                            <li><a id="active" href="index.php">Home</a></li>
                             <li><a href="property.php">Property</a></li>
                             <li><a href="about.php">About</a></li>
                             <li><a href="contact.php">Contact</a></li>
@@ -111,6 +159,9 @@
                     </div>
                 </div>
                 <div class="navchild3">
+                    <div class="navchild3-mobile-div">
+
+                    
                         <?php 
                             $login = Session::get("userlogin");
                             if ($login == false) {
@@ -138,6 +189,7 @@
                                 <?php
                             }
                         ?>
+                    </div>
                     <a href="submit.php"><i class="fas fa-plus" id="fa-plus"></i></a>
                 </div>
                 <div class="navchild4" id="navchild4">
@@ -163,11 +215,26 @@
         </nav>
          <!-- navbar end -->
         </section>
+
+                <?php
+                    $query = "SELECT * FROM tbl_siteoption";
+                    $post = $db->select($query);
+                    if($post){
+                            while($result = $post->fetch_assoc()){
+                ?>
+
         <!-- banner overlay start -->
             <div class="banner-overly">
-                <p id="p">Lorem ipsum dolor sit amet, consecteLorem ipsum dolor sit amet,</p>
+                <p>The Ultimate Solution For Home Rental Service</p>
                 <div class="line"></div>
-                <h1>The Best Way To Find Your Perfect Home</h1>
+                <h1><?php echo $result['title']; ?></h1>
             </div>
         <!-- banner overlay end -->
+
+        <?php
+            }
+        }
+        ?>
+
+
     </header>

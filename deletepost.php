@@ -2,9 +2,6 @@
     include('lib/Session.php');
     Session::init();
     include('lib/Database.php'); 
-    // include('helpers/format.php');
-    // include_once('classes/User.php');
-    // include_once('classes/Addpost.php');
  ?>
 <?php
     $db = new Database();

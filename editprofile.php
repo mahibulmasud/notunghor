@@ -18,7 +18,7 @@
 ?>
 
 <div class="space"></div>
-<div class="container">
+<div class="container profile-container">
     <?php
         $id =  Session::get("uid");
         $getdata = $us->getUserData($id);
@@ -34,11 +34,11 @@
         </tr>
             <?php
             if (isset($updateUser)) {
-                echo "<tr><td colspan='3' style='text-align:center;'>".$updateUser."</td></tr>";
+                echo "<tr><td colspan='3' align='center'>".$updateUser."</td></tr>";
             }
                 
             ?>
-
+            
         
         <tr>
             <td width="15%"><b>Profile Picture</b></td>
@@ -66,9 +66,21 @@
             <td><input type="text" name="mobileno" value="<?php echo $result['mobileNo']; ?>"></td>
         </tr>
         <tr>
+            <td><b>Facebook</b></td>
+            <td><input type="text" name="facebook" value="<?php echo $result['facebook']; ?>"></td>
+        </tr>
+        <tr>
+            <td><b>Twitter</b></td>
+            <td><input type="text" name="twitter" value="<?php echo $result['twitter']; ?>"></td>
+        </tr>
+        <tr>
+            <td><b>Instagram</b></td>
+            <td><input type="text" name="instagram" value="<?php echo $result['instagram']; ?>"></td>
+        </tr>
+        <tr>
             <td></td>
             <td> 
-                <input type="submit" name="update" class="user-update-button" value="Update">
+                <input type="submit" id="myBtn" name="update" class="user-update-button" value="Update">
                 <a href="profile.php" class="user-update-details">Profile</a>
             </td>
         </tr>
@@ -79,6 +91,7 @@
         }
         ?>
 </div>
+
 <div class="space"></div>
 
 <!-- footer -->

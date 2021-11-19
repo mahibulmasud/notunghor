@@ -13,7 +13,7 @@
 <!-- second header -->
 <?php
     if(!isset($_GET['search']) || $_GET['search'] == NULL){
-        header('Location:404.php');
+        header('Location:property.php');
     }else{
         $search = $_GET['search'];
     }
@@ -59,7 +59,7 @@
                             <!-- php -->
                             <div class="card-area" style="position: relative;">
                             <a href="propertydetails.php?id=<?php echo $result['id']; ?>" class="card-link">
-                                <img src='images/<?php echo $result['image'] ?>'>
+                                <img src='<?php echo $result['image'] ?>'>
                                 <h2 class="card-price"><?php echo $result['price'] ?></h2>
                                      
                                         <h3 class="card-title"><?php echo $result['title'] ?></h3>

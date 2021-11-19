@@ -48,10 +48,10 @@
             $query = "INSERT INTO tbl_post(userId,title,address,bedroom,bathroom,division,district,thana,sectorno,roadno,houseno,price,map,image,description) VALUES('$userid', '$title', '$address', '$bedroom','$bathroom', '$division', '$district', '$thana', '$sectorno', '$roadno', '$houseno', '$price', '$map', '$uploaded_image', '$description')";
             $inserted_row = $this->db->insert($query);
             if ($inserted_row) {
-                $msg = "<p style='color:green;'>User Data Inserted Successfully</p>";
+                $msg = "<p style='color:green; text-align:center;'>Post added Successfully</p>";
                 return $msg;
             }else{
-                $msg = "<p style='color:red;'>User Data not Inserted</p>";
+                $msg = "<p style='color:red; text-align:center;'>There is a problem occur on server while submiting post</p>";
                 return $msg;
             }
         // }
@@ -130,7 +130,6 @@
                       houseno = '$houseno',
                       address = '$address',
                       map = '$map',
-                      image = '$uploaded_image',
                       description = '$description'
                       WHERE id = '$id'";
             $updated_row = $this->db->update($query);

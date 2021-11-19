@@ -1,5 +1,6 @@
 <?php
     $filepath = realpath(dirname(__FILE__));
+    include_once ($filepath.'/../lib/Session.php');
     include_once ($filepath.'/../lib/Database.php');
     include_once ($filepath.'/../helpers/format.php');
 ?>
@@ -95,6 +96,9 @@
         $userUsername = mysqli_real_escape_string($this->db->link, $data['userUsername']);
         $userEmail = mysqli_real_escape_string($this->db->link, $data['userEmail']);
         $mobileno = mysqli_real_escape_string($this->db->link, $data['mobileno']);
+        $facebook = mysqli_real_escape_string($this->db->link, $data['facebook']);
+        $twitter = mysqli_real_escape_string($this->db->link, $data['twitter']);
+        $instagram = mysqli_real_escape_string($this->db->link, $data['instagram']);
         // $userPass = mysqli_real_escape_string($this->db->link, md5($data['userPass']));
 
         $permited = array('jpg', 'jpeg', 'png', 'gif');
@@ -115,14 +119,17 @@
                       userUsername = '$userUsername',
                       userImage = ' $uploaded_image',
                       userEmail = '$userEmail',
-                      mobileNo = '$mobileno'
+                      mobileNo = '$mobileno',
+                      facebook = '$facebook',
+                      twitter = '$twitter',
+                      instagram = '$instagram'
                       WHERE userId = '$id'";
             $updated_row = $this->db->update($query);
             if ($updated_row) {
-                $msg = "<p style='color:green;'>Data Updated Successfully</p>";
+                $msg = "<p style='color:green;'>You successfully Updated your profile</p>";
                 return $msg;
             }else{
-                $msg = "<p style='color:red;'>Data Updated Not Successfully</p>";
+                $msg = "<p style='color:red;'>There are some error while updating profile info</p>";
                 return $msg;
             }
         }
@@ -140,14 +147,17 @@
                       userName = '$userName',
                       userUsername = '$userUsername',
                       userEmail = '$userEmail',
-                      mobileNo = '$mobileno'
+                      mobileNo = '$mobileno',
+                      facebook = '$facebook',
+                      twitter = '$twitter',
+                      instagram = '$instagram'
                       WHERE userId = '$id'";
             $updated_row = $this->db->update($query);
             if ($updated_row) {
-                $msg = "<p style='color:green;'>Data Updated Successfully</p>";
+                $msg = "<p style='color:green;'>You successfully Updated your profile</p>";
                 return $msg;
             }else{
-                $msg = "<p style='color:red;'>Data Updated Not Successfully</p>";
+                $msg = "<p style='color:red;'>There are some error while updating profile info</p>";
                 return $msg;
             }
         }

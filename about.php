@@ -7,42 +7,122 @@
             <div class="login-banner banner">
                     <div class="banner-overlay">
                         <h1 class="banner-header">About</h1>
-                        <p> <a href="#">Home</a>  > About</p>
+                        <p> <a href="index.php">Home</a>  > About</p>
                     </div>
                 </div>
             <!-- banner section end -->
         </header>
-<!-- second header -->
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+<link rel="stylesheet" href="css/about.css">
     <!-- section start -->
-    <section class="section">
-    <h1 class="text">Team information</h1>
-    <hr class="team-hr">
-        <div class="team-main about-container">
-            <div class="team-01">
-                <a class="team-link" href="http://mahibulmasud.brandyourself.com/" target="_blank">
-                    <img id="img1" class="card-image" src="images/masud.jpg" alt="masudur rahman picture">
-                    <div class="card" id="card">
-                        <h2 class="h2">Kazi Masudur rahman</h2>
-                        <h2 class="h2">181-15-1743</h2>
-                </a>
-                    </div>
+    <div class="about-grid-main">
+        <div> <div class="about-container">
+         <div class="wrapper">
+            <a href="#">
+            <img src="images/masud1.jpg" alt="">
+            </a>
+            <div class="title">
+            Masudur Rahman
             </div>
-            <div class="team-02">
-                    <img id="img2" class="card-image" src="images/marjanjpg.jpg" alt="jannatul marjan picture">
-                    <div class="card" id="card">
-                        <h2 class="h2">Jannatul Marjan</h2>
-                        <h2 class="h2">181-15-1744</h2>
-                    </div>
+            <div class="place">
+            181-15-1743
             </div>
-            <div class="team-03">
-                    <img id="img3" class="card-image" src="images/tanvir.jpg" alt="tanvir ahamed picture">
-                    <div class="card" id="card">
-                        <h2 class="h2">Md. Tanvir Ahmed</h2>
-                        <h2 class="h2">181-15-1866</h2>
-                    </div>
+         </div>
+         <div class="content">
+            <p style="margin: 15px 0px;">
+                Full Stack Developer
+            </p>
+            <div class="buttons">
+               <div class="btn">
+                  <button>Message</button>
+               </div>
+               <div class="btn">
+                  <button>Following</button>
+               </div>
             </div>
+         </div>
+         <div class="icons">
+            <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+         </div>
+      </div></div>
+        <div>
+        <div class="about-container">
+         <div class="wrapper">
+            <a href="#">
+            <img src="images/marjanjpg.jpg" alt="">
+            </a>
+            <div class="title">
+            Jannatul Marjan
+            </div>
+            <div class="place">
+            181-15-1744
+            </div>
+         </div>
+         <div class="content">
+            <p style="margin: 15px 0px;">
+                Front-end Developer
+            </p>
+            <div class="buttons">
+               <div class="btn">
+                  <button>Message</button>
+               </div>
+               <div class="btn">
+                  <button>Following</button>
+               </div>
+            </div>
+         </div>
+         <div class="icons">
+            <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+         </div>
+      </div>
         </div>
-    </section>
+        <div>
+        <div class="about-container">
+         <div class="wrapper">
+            <a href="#">
+            <img src="images/tanvir.jpg" alt="">
+            </a>
+            <div class="title">
+            Tanvir Ahmed
+            </div>
+            <div class="place">
+            181-15-1866
+            </div>
+         </div>
+         <div class="content">
+            <p style="margin: 15px 0px;">
+                UI/UX Designer and Dev
+            </p>
+            <div class="buttons">
+               <div class="btn">
+                  <button>Message</button>
+               </div>
+               <div class="btn">
+                  <button>Following</button>
+               </div>
+            </div>
+         </div>
+         <div class="icons">
+            <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+         </div>
+      </div>
+        </div>
+    </div>
+      <script>
+         const img = document.querySelector("img");
+         const icons = document.querySelector(".icons");
+         img.onclick = function(){
+           this.classList.toggle("active");
+           icons.classList.toggle("active");
+         }
+      </script>
     <!-- section end -->
 
 <!-- footer -->

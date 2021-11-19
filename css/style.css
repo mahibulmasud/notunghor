@@ -51,6 +51,9 @@ body{
 .font{
     font-family: "Rubik", sans-serif;
 }
+#btn-heading{
+    background-color:var(--heading-color) ;
+}
 /* scrollbar design */
 /* width */
 ::-webkit-scrollbar {
@@ -81,6 +84,10 @@ body{
     background-size: cover;
     background-blend-mode: overlay;
     background-color: rgba(0,24,77,.8);
+}
+.header-sicon{
+    color: #fff;
+    text-decoration: none;
 }
 /* top header start*/
 .top-header-main {
@@ -524,6 +531,7 @@ body{
     top: -80px;
     left: 50%;
     transform: translate(-50%);
+    object-fit: cover;
     z-index: 10;
     border: 3px solid var(--main-color);
 }
@@ -630,12 +638,12 @@ footer::after{
     margin-top: 10vh;
     z-index: 10;
 }
-.tf-one table tr td:first-child{
-    padding: 25px 13px 0px 0px;
+.tf-one-first {
+    padding: 0px 13px 0px 0px !important;
 }
 .tf-one table tr td {
     padding: 25px 13px 0px 0px;
-}
+} 
 .tf-two ul{
     list-style-type:">";
 }
@@ -666,18 +674,15 @@ footer::after{
     padding: 50px 0px;
     border-top: 1px solid #ffffff3b;
 }
-.subscribe-div .input[type="text"]{
+/* .subscribe-div input[type="text"]{
     width: 60%;
-}
+} */
 .subscribe-div {
     margin-top: 30px;
     width: 60%;
 }
-.subscribe-div .input[type="text"]{
-    width: 60%;
-}
-.subscribe {
-    padding: 13px 26px 15px 21px;
+#subscribe {
+    padding: 13px 26px 19px 21px;
     text-decoration: none;
     color: #fff;
     position: absolute;
@@ -686,6 +691,7 @@ footer::after{
     /* width: 40%; */
     z-index: 1;
     overflow: hidden;
+    cursor: pointer;
 }
 .Submit{
     padding: 13px 26px 15px 21px;
@@ -1039,6 +1045,15 @@ footer::after{
     font-size: 18px;
     color: var(--paragraph-color);
 }
+.input-container input[type=number] {
+    width: 100%;
+    height: 50px;
+    padding: 0 18px;
+    border: 1px solid #f2f2f2;
+    background: #fbfbfb;
+    font-size: 18px;
+    color: var(--paragraph-color);
+}
 /* -------------------------------------- */
 /* registration page start */
 /* banner */
@@ -1101,6 +1116,9 @@ footer::after{
     height: 150vh;
     width: 100%;
     font-family: arial;
+}
+#login-main-div {
+    height: 80vh;
 }
 .main-div .clip-one{
     width: 100%;
@@ -1176,7 +1194,7 @@ footer::after{
         /* border: 1px solid blue; */
         box-shadow: 0px 4px 9px -2px #4caf50;
     }
-    .main-div input[type=submit] {
+    #logregbutton {
         position: relative;
         cursor: pointer;
         font-size: 21px;
@@ -1384,6 +1402,7 @@ line-height: 1.5;
     height: 10vh;
     font-size: 20px;
     text-decoration: none;
+    cursor: pointer;
 }
 .button::before{
     position: absolute;
@@ -1395,7 +1414,7 @@ line-height: 1.5;
     height: 100%;
     background-color: #427A11;
     transition: all 1s;
-    z-index: 1;
+    z-index: -1;
 
 }
 .button:hover::before{
@@ -1686,9 +1705,10 @@ line-height: 1.5;
     text-align: center;
     margin-top: 20px;
 }
-.card-image{
+.card-image {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 .clip-one-team{
     width: 100%;
@@ -1718,18 +1738,27 @@ line-height: 1.5;
     font-size: 20px;
     font-family: var(--font-family);
     min-width: 40%;
+    box-shadow: 0px 3px 15px 0px rgb(0 0 0 / 6%);
+    border-radius: 5px;
+}
+.profile-container {
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 15px 0px rgb(0 0 0 / 6%);
+    background: #fff;
 }
 .user-profile-table {
     border-collapse: collapse;
     width: 100%;
-    border: 5px solid var(--heading-color);
+    /* border: 5px solid var(--heading-color); */
+    
 }
 .user-profile-table tr td{
     padding: 10px;
     font-size: 20px;
 }
-.user-profile-table tr:nth-child(odd){background-color: #0d174136}
-.user-profile-table tr:nth-child(even){background-color: rgba(0, 128, 0, 0.178);}
+/* .user-profile-table tr:nth-child(odd){background-color: #0d174136}
+.user-profile-table tr:nth-child(even){background-color: rgba(0, 128, 0, 0.178);} */
 .user-update-details{
     text-decoration: none;
     color: #fff;
@@ -1743,9 +1772,9 @@ line-height: 1.5;
 .profile-header-text {
     font-size: 25px;
     color: var(--heading-color);
-    text-decoration-line: underline;
+    /* text-decoration-line: underline;
     text-decoration-style: wavy;
-    text-decoration-color: #008000a8;
+    text-decoration-color: #008000a8; */
 }
 .logout{
     text-decoration: none;
@@ -1830,5 +1859,85 @@ line-height: 1.5;
     opacity: 1;
   }
 /* tooltip text end */
+/* ----------------modal style start------------- */
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .modal-body {padding: 2px 16px;}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
 
-
+/* ----------------modal style end------------- */

@@ -1,3 +1,4 @@
+
         <div class="admin-footer">
             <small>&copy copyright skybird. All right reserved</small>
         </div>

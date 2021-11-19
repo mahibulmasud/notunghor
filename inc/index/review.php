@@ -15,7 +15,7 @@
                             <i class="fas fa-star"></i>             
                     </div> 
                     <div class="card-area">
-                        <img class='img' src='images/masud2.jpg'>
+                        <img class='img' src='images/marjanjpg.jpg'>
                         <h3 class="review-card-title">Title goes here..</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, architecto.</p>
                             <i class="fas fa-star"></i>
@@ -25,7 +25,7 @@
                             <i class="fas fa-star"></i>             
                     </div> 
                     <div class="card-area">
-                        <img class='img' src='images/masud3.jpg'>
+                        <img class='img' src='images/tanvir.jpg'>
                         <h3 class="review-card-title">Title goes here..</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, architecto.</p>
                             <i class="fas fa-star"></i>

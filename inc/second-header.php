@@ -1,11 +1,15 @@
 <?php 
     ob_start();
+    
+    // Session::init();
+    session_start();
     include('lib/Session.php');
-    Session::init();
     include('lib/Database.php'); 
     include('helpers/format.php');
     include_once('classes/User.php');
     include_once('classes/Addpost.php');
+    include_once('classes/Contact.php');
+    include_once ('classes/SiteOption.php');
 
  ?>
 <?php
@@ -18,6 +22,8 @@
     $fm = new Format();
     $us = new User();
     $addp = new Addpost();
+    $con = new Contact();
+    $so = new SiteOption();
 ?>
 
 
@@ -29,6 +35,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+     <!-- favicon -->
+     <link rel="icon" href="images/mobile-logo.png" type="image/gif" sizes="16x16">
     <!-- font-awesome offline link -->
     <link rel="stylesheet" href="css/fontawesomeCss/all.css">
     <link rel="stylesheet" href="css/fontawesomeCss/all.min.css">
@@ -36,8 +44,9 @@
     <link rel="stylesheet" href="css/fontawesomeCss/fontawesome.min.css">
     <!-- google font link -->
    <link rel="stylesheet" href="css/font.css">
-   <!-- jquery link -->
-   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+   <!-- ajax link -->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/function.js"></script>
     <title><?php echo $fm ->title(); ?> - <?php echo title; ?></title>
 </head>
 <body style="background: #F5F6F7;">
@@ -48,8 +57,38 @@
                 <nav class="container">
                     <div class="second-nav-main">
                         <div class="navchild1">
-                        <a class="pc-logo" href="index.php"><img src="images/logo.png" alt="sitelogo"></a>
-                        <a class="mobile-logo" href="index.php"><img src="images/mobile-logo.png" alt="sitelogo"></a>
+                                <div class="logo-for-desktop-div">
+                                <a href="index.php">                       
+                                    <?php
+                                            $query = "SELECT * FROM tbl_siteoption";
+                                            $post = $db->select($query);
+                                            if($post){
+                                                    while($result = $post->fetch_assoc()){
+                                        ?>
+                
+                                        <img src="admin/<?php echo $result['logo']; ?>" alt="sitelogo">
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                </a>
+                            </div>
+                            <div class="mobile-logo-div">
+                                <a href="index.php">                       
+                                    <?php
+                                            $query = "SELECT * FROM tbl_siteoption";
+                                            $post = $db->select($query);
+                                            if($post){
+                                                    while($result = $post->fetch_assoc()){
+                                        ?>
+                
+                                        <img class="mobile-logo" src="admin/<?php echo $result['mobilelogo']; ?>" alt="sitelogo">
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                </a>
+                            </div>
                         </div>
                         <div class="navchild2">
                             <div>
@@ -94,7 +133,7 @@
 
                                     ?>
                                     <a href="profile.php"> <abbr title="profile">
-                                    <img src="<?php echo $result['userImage']; ?>" width="40px" height="40px" style="border-radius:50%" alt="">
+                                    <img src="<?php echo $result['userImage']; ?>" width="40px" height="40px" style="border-radius:50%;object-fit: cover;" alt="">
                                     </abbr></a>
 
                                     <?php } } ?>

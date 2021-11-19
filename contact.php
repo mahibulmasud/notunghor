@@ -4,12 +4,20 @@
  <div class="contact-banner banner">
             <div class="banner-overlay">
                 <h1 class="banner-header">Contact</h1>
-                <p> <a href="#">Home</a>  > Contact</p>
+                <p> <a href="index.php">Home</a>  > Contact</p>
             </div>
         </div>
     <!-- banner section end -->
     </header>
 <!-- contact header -->
+
+    <?php
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['send'])){
+            $contactInfo = $con->contactInfo($_POST);
+        }
+    ?>
+
+
 <!-- // -->
 <div style="margin:50px"></div>
 <!-- // -->
@@ -26,25 +34,33 @@
             <div class="cs-child-two">
                 <h1>Contact Us</h1>
                 <h4 style="text-align:center">We'd love to hear from you!</h4>
-                <form action="">
+
+                        <?php
+                            if (isset($contactInfo)) {
+                                echo $contactInfo;
+                            }
+                        ?>
+
+                <form action="" method="POST">
                     <div class="contact-inputfeild">
-                        <input type="text" class="contact-inputfeild-input-text" placeholder="Name" required >
+                        <input type="text" name="name" class="contact-inputfeild-input-text" placeholder="Name" >
                         
                     </div>
                     <div class="contact-inputfeild">
-                        <input type="text" class="contact-inputfeild-input-text" placeholder="Email" required>
+                        <input type="text" name="email" class="contact-inputfeild-input-text" placeholder="Email">
                        
                     </div>
                     <div class="contact-inputfeild">
-                        <input type="text" class="contact-inputfeild-input-text" placeholder="Phone" required>
+                        <input type="text" name="phone" class="contact-inputfeild-input-text" placeholder="Phone">
                     
                     </div>
                     <div class="contact-inputfeild textarea">
-                        <textarea name="" class="contact-inputfeild-textarea" placeholder="Message" cols="100%" rows="10"></textarea>
+                        <textarea name="body" class="contact-inputfeild-textarea" placeholder="Message" cols="100%" rows="10"></textarea>
                         
                     </div>
                     <div class="contact-inputfeild">
-                        <button class="button">Send</button>
+                        <!-- <button class="button" name="send"> <span>Send</span></button> -->
+                        <input class="button" type="submit" name="send" value="Send">
                     </div>
                 </form>
             </div>
